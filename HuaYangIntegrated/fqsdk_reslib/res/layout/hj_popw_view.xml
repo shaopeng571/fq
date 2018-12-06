@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#808080" >
+    
+    <ListView
+        android:id="@+id/lsvAccount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/hj_transparent_txt_black"
+        android:cacheColorHint="#00000000"
+        android:drawSelectorOnTop="false"
+        android:fadingEdge="none"
+        android:listSelector="@drawable/hj_timer_list_selector"
+        android:scrollingCache="false" >
+
+    </ListView>
+</LinearLayout>

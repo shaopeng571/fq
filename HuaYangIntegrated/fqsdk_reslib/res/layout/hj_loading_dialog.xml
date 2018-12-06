@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout  
+  xmlns:android="http://schemas.android.com/apk/res/android"  
+  android:layout_width="fill_parent"  
+  android:layout_height="fill_parent"  
+  android:orientation="horizontal">  
+  <LinearLayout  
+  android:layout_width="wrap_content"  
+  android:layout_height="wrap_content" 
+  android:padding="5dp"
+  android:background="@drawable/hj_pay_common_bg" 
+  android:orientation="horizontal">  
+  
+    <ImageView  
+        android:id="@+id/loadingImageView"  
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:background="@anim/hj_progress_round"/>
+
+    <TextView
+        android:id="@+id/id_tv_loadingmsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginLeft="3dp"
+        android:textColor="@color/hj_base_dreep_grey"
+        android:text="@string/hj_text_loading"
+        android:textSize="12dp" />
+    
+</LinearLayout>
+</LinearLayout>

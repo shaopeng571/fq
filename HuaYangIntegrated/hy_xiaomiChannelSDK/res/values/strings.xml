@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">hy_xiaomiChannelSDK</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    
+    <string name="xiaomi_appid">2882303761517886853</string>
+    <string name="xiaomi_appkey">5271788699853</string>
+</resources>

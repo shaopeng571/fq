@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+            android:layout_gravity="center"
+    
+    android:orientation="vertical" >
+
+    <!-- 登录Activity布局 -->
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/hj_allre"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/hj_dialog_bg"
+        android:gravity="center_horizontal"
+      
+        >
+
+
+        <LinearLayout
+            android:id="@+id/cl_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+              android:paddingRight="25dp"
+        android:paddingLeft="25dp"
+            android:orientation="vertical" >
+            
+        <LinearLayout
+            android:id="@+id/hj_mainlin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                 android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/fq_logo"
+                    android:visibility="visible" /> 
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/re_account"
+                    android:layout_width="@dimen/hj_login_broadsizewidth_pro"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/fq_inputframe_underline"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                     >
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="@dimen/hj_smallicon_size"
+                        android:layout_height="@dimen/hj_smallicon_size"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/fq_accountgray" />
+
+                    <EditText
+                        android:id="@+id/edt_account"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:layout_toLeftOf="@+id/iv_accountList"
+                        android:layout_toRightOf="@+id/imageView2"
+                        android:background="@drawable/hj_login_bg_txt_null"
+                       android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+                        android:maxLength="20"
+                        android:hint="@string/hj_btn_find_email"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName"
+                        android:padding="4dp"
+                        android:singleLine="true"
+                        android:textColor="@color/hj_base_black"
+                        android:textColorHint="@color/hj_newhintgrey"
+                        android:textSize="@dimen/hj_font_size" >
+
+                        <requestFocus />
+                    </EditText>
+
+                    <ImageView
+                        android:id="@+id/iv_accountList"
+                        android:layout_width="@dimen/fq_activity_closeicon_frame"
+                        android:layout_height="@dimen/fq_activity_closeicon_frame"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="right"
+                        android:padding="5dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/hj_newloginlisticon" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/re_account2"
+                    android:layout_width="@dimen/hj_login_broadsizewidth_pro"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/re_account"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/fq_inputframe_underline"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                     >
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="@dimen/hj_smallicon_size"
+                        android:layout_height="@dimen/hj_smallicon_size"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/fq_password_gray" />
+
+                    <EditText
+                        android:id="@+id/edt_pwd"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:background="@drawable/hj_login_bg_txt_null"
+                        android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+                        android:maxLength="20"
+                        android:hint="@string/hj_loginpwdhint"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPassword"
+                        android:padding="4dp"
+                        android:singleLine="true"
+                        android:textColor="@color/hj_base_black"
+                        android:textColorHint="@color/hj_newhintgrey"
+                        android:textSize="@dimen/hj_font_size" >
+
+                    </EditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_login"
+                     android:layout_width="@dimen/fq_okbtn_dimen"
+                        android:layout_height="wrap_content"
+                    android:layout_below="@+id/re_account2"
+                    android:background="@drawable/fq_okbtnshape"
+                    android:padding="9dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    
+                    >
+                       <TextView 
+                         android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     android:text="@string/hj_btn_login_login"
+                    android:textColor="@color/hj_base_white"
+                    android:textSize="@dimen/hj_font_size"
+                    />
+                    </LinearLayout>
+                 
+            </RelativeLayout>
+
+          
+        </LinearLayout>
+
+      
+
+        <LinearLayout
+            android:id="@+id/hj_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/hj_cutoffrule"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+             <LinearLayout
+            android:id="@+id/btn_findpwd"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+             android:gravity="center_vertical|left"
+             android:paddingTop="15dp"
+             android:paddingBottom="15dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="@dimen/hj_smallicon_size"
+                android:layout_height="@dimen/hj_smallicon_size"
+                android:src="@drawable/fq_main_tofindpwd" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="3dp"
+                 android:textSize="12sp"
+                android:layout_marginRight="2dp"
+                android:textColor="@color/fq_findpwd_title_gray"
+                android:text="@string/hj_newbtnfindpwd" />
+        </LinearLayout>
+         <LinearLayout
+            android:id="@+id/btn_reg"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+             android:gravity="center"
+             android:paddingTop="15dp"
+             android:paddingBottom="15dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="@dimen/hj_smallicon_size"
+                android:layout_height="@dimen/hj_smallicon_size"
+                android:src="@drawable/fq_main_toregicon" />
+
+            <TextView
+                 android:id="@+id/cl_text_regorbind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                 android:textSize="12sp"
+                 android:layout_marginLeft="3dp"
+                android:layout_marginRight="2dp"
+                 android:textColor="@color/fq_findpwd_title_gray"
+                android:text="@string/hj_newreg" />
+
+        </LinearLayout>
+          <LinearLayout
+            android:id="@+id/btn_bindphone"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|right"
+            android:paddingTop="15dp"
+             android:paddingBottom="15dp"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="@dimen/hj_smallicon_size"
+                android:layout_height="@dimen/hj_smallicon_size"
+                android:src="@drawable/fq_main_tobindphone" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                 android:layout_marginLeft="3dp"
+                android:layout_marginRight="2dp"
+                android:textSize="12sp"
+                 android:textColor="@color/fq_findpwd_title_gray"
+                android:text="@string/hj_newbtnbindphone" />
+
+        </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/cl_main"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:visibility="gone"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/img_btn_close"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/hj_paymenyclose" />
+        </LinearLayout>
+</RelativeLayout>
+    </RelativeLayout>
+
+</ScrollView>

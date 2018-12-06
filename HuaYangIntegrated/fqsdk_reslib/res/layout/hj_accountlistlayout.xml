@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+                       android:background="@drawable/fq_inputframe_shape"     
+
+    >
+<ListView 
+    android:id="@+id/layout_options_list" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+    android:cacheColorHint="@color/hj_base_white"
+    android:divider="@color/hj_newlinegrey"
+    android:dividerHeight="1px"
+    >
+</ListView>
+</LinearLayout>

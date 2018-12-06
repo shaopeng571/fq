@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+
+    <string name="app_name">huayang_channelsdk_huawei</string>
+    <string name="hello_world">Hello world!</string>
+	
+    
+     <string name="huawei_appid">100479833</string>
+    <string name="huawei_cpid">900086000149987684</string>
+     <string name="huawei_rsa_private">huayang_channelsdk_huawei</string>
+    <string name="HUAWEI_BUOY_PRIVATEKEY">Hello world!</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="hj_frame_minwidthsize">433dp</dimen>
+    <dimen name="hj_guide_bigfontsize">15sp</dimen>
+    <dimen name="hj_guide_littlefontsize">7sp</dimen>
+    <dimen name="hj_login_itemspace">10dp</dimen>
+    <dimen name="hj_login_Roundsize">90dp</dimen>
+    <dimen name="hj_login_Roundpandingtopandbottom">40dp</dimen>
+    <dimen name="hj_login_broadsizewidth">260dp</dimen>
+    <dimen name="hj_smallicon_size">14dp</dimen>
+    <dimen name="hj_font_size">12sp</dimen>
+    <dimen name="hj_login_Roundpandingtopandbottom_pro">20dp</dimen>
+    <dimen name="hj_login_Roundsize_pro">110dp</dimen>
+    <dimen name="hj_login_broadsizewidth_pro">230dp</dimen>
+    <dimen name="hj_frame_heightsize_pro">330dp</dimen>
+    <!-- Default radius for CardView corners. -->
+    <dimen name="cardview_default_radius">2dp</dimen>
+    <!-- Elevation value to use for CardViews. Pre-L, it is equal to shadow size. -->
+    <dimen name="cardview_default_elevation">2dp</dimen>
+    <!--
+     Inset shadow for RoundRectDrawableWithShadow. It is used to avoid gaps between the card
+     and the shadow.
+    -->
+    <dimen name="cardview_compat_inset_shadow">1dp</dimen>
+
+     <dimen name="fq_okbtn_dimen">180dp</dimen>
+     <dimen name="fq_activity_logo_width">130dp</dimen>
+     <dimen name="fq_reg_inputframe_width">180dp</dimen>
+     
+     
+     <dimen name="fq_input_edit_frame_width">170dip</dimen>
+     <dimen name="fq_login_register_frame_height">28dip</dimen>
+     <dimen name="fq_activity_closeicon_frame">20dip</dimen>
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+<RelativeLayout 
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/hj_re_payback_bg"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/hj_transparent_pay"
+   
+     >
+
+<RelativeLayout 
+    android:id="@+id/hj_linbackmain"
+    android:layout_width="300dp"
+    android:layout_height="170dp"
+    android:background="@drawable/hj_paybackshape"
+    android:layout_centerHorizontal="true"
+    >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="8dp"
+             android:layout_marginRight="8dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/img_btn_close"
+                android:layout_width="@dimen/fq_activity_closeicon_frame"
+                android:layout_height="@dimen/fq_activity_closeicon_frame"
+                android:src="@drawable/hj_paymenyclose" />
+        </LinearLayout>
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/hj_text_pay_tip2"
+        android:textColor="@color/hj_payactivity_gery"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_below="@+id/textView1"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:gravity="center_horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_back"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+            android:background="@drawable/hj_payisback_button_redframe"
+            android:gravity="center"
+
+            android:text="@string/hj_payisback_buttonleft"
+            android:textColor="@color/hj_new_orange"
+            android:textSize="17sp" />
+
+        <View
+            android:layout_width="8dp"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:id="@+id/tv_notback"
+            android:layout_width="130dp"
+            
+            android:layout_height="40dp"
+            android:background="@drawable/fq_okbtnshape"
+            android:gravity="center"
+            android:text="@string/hj_payisback_buttonright"
+            android:textColor="@color/hj_base_white"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+</RelativeLayout>
+
+
+</RelativeLayout>

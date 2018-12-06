@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hj_activityRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical" >
+
+    <!-- 登录Activity布局 -->
+
+    <RelativeLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/hj_dialog_bg"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/cl_linclose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/hj_allre"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/img_btn_close"
+                android:layout_width="@dimen/fq_activity_closeicon_frame"
+                android:layout_height="@dimen/fq_activity_closeicon_frame"
+                android:src="@drawable/hj_paymenyclose" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/hj_allre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp" >
+
+            <RelativeLayout
+                android:id="@+id/hj_findcenterre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/hj_mainleftlin"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="25dp"
+                android:layout_toRightOf="@+id/hj_mainleftlin"
+                android:orientation="vertical" >
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/hj_mainleftlin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="10dp"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="140dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/fq_logo"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/hj_find1re"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hj_mainleftlin"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+
+                <TextView
+                    android:id="@+id/hj_bindtitletext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/hj_btn_login_findpwd"
+                    android:textColor="@color/fq_findpwd_title_gray"
+                    android:textSize="16sp" />
+
+                <RelativeLayout
+                    android:id="@+id/re_account"
+                    android:layout_width="@dimen/hj_login_broadsizewidth"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hj_bindtitletext"
+                    android:background="@drawable/fq_inputframe_underline"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                     >
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="@dimen/hj_smallicon_size"
+                        android:layout_height="@dimen/hj_smallicon_size"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/hj_newaccounticon" />
+
+                    <EditText
+                        android:id="@+id/edt_account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="8dp"
+                        android:layout_toRightOf="@+id/imageView2"
+                        android:background="@drawable/hj_login_bg_txt_null"
+                        android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+                        android:maxLength="20"
+                        android:hint="@string/hj_find1_pleaseact"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName"
+                        android:padding="4dp"
+                        android:singleLine="true"
+                        android:textColor="@color/hj_base_black"
+                        android:textColorHint="@color/hj_newhintgrey"
+                        android:textSize="@dimen/hj_font_size" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/hj_find1text"
+                    android:layout_width="@dimen/hj_login_broadsizewidth"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/re_account"
+                    android:text="@string/hj_find1_geshi"
+                    android:textColor="@color/hj_newtext_orange"
+                    android:textSize="@dimen/hj_font_size"
+                    android:visibility="invisible" />
+
+                <LinearLayout
+                    android:id="@+id/btn_ok1"
+                    android:layout_width="@dimen/fq_okbtn_dimen"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/hj_find1text"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/fq_okbtnshape"
+                    android:gravity="center"
+                    android:padding="9dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hj_btn_find_ok"
+                        android:textColor="@color/hj_base_white"
+                        android:textSize="@dimen/hj_font_size" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/hj_find2re"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hj_mainleftlin"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/hj_bindtitletext2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/hj_btn_login_findpwd"
+                    android:textColor="@color/fq_findpwd_title_gray"
+                    android:textSize="16sp" />
+
+          
+
+                <TextView
+                    android:id="@+id/hj_find2text"
+                    android:layout_width="@dimen/hj_login_broadsizewidth"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hj_bindtitletext2"
+                    android:layout_marginTop="5dp" />
+
+                <LinearLayout
+                    android:id="@+id/hj_btn_qq"
+                     android:layout_width="@dimen/fq_okbtn_dimen"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hj_find2text"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/fq_okbtnshape"
+                    android:gravity="center"
+                    android:padding="9dp" >
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/hj_cnqq" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@string/hj_find2_qq"
+                        android:textColor="@color/hj_base_white" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/hj_find3re"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hj_mainleftlin"
+                android:layout_centerVertical="true"
+                android:orientation="vertical"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/hj_bindtitletext3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:text="@string/hj_btn_login_findpwd"
+                    android:textColor="@color/fq_findpwd_title_gray"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/hj_phone"
+                    android:layout_width="@dimen/hj_login_broadsizewidth"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/hj_bindtitletext3"
+                    android:text="@string/hj_find1_geshi"
+                    android:textColor="@color/hj_newtextgrey" />
+
+                <LinearLayout
+                    android:id="@+id/hj_reggetcodelin"
+                    android:layout_width="@dimen/hj_login_broadsizewidth"
+                    android:layout_height="@dimen/fq_login_register_frame_height"
+                    android:layout_below="@+id/hj_phone"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.65"
+                        android:background="@drawable/fq_inputframe_underline"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                         >
+
+                        <ImageView
+                            android:layout_width="@dimen/hj_smallicon_size"
+                            android:layout_height="@dimen/hj_smallicon_size"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/fq_verifycode_gray" />
+
+                        <EditText
+                            android:id="@+id/edt_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="8dp"
+                            android:background="@drawable/hj_login_bg_txt_null"
+                            android:hint="@string/hj_edt_regcode"
+                            android:imeOptions="flagNoExtractUi"
+                            android:inputType="number"
+                            android:padding="4dp"
+                            android:singleLine="true"
+                            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+                        android:maxLength="20"
+                            android:textColor="@color/hj_base_black"
+                            android:textColorHint="@color/hj_newhintgrey"
+                            android:textSize="@dimen/hj_font_size" >
+                        </EditText>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="2dp"
+                        android:layout_height="match_parent"
+                        android:background="@color/hj_base_white" />
+
+                    <Button
+                        android:id="@+id/hj_btn_getcode"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.35"
+                        android:background="@drawable/fq_okbtnshape"
+                        android:gravity="center"
+                        android:text="@string/hj_btn_reggetcode"
+                        android:textColor="@color/hj_base_white"
+                        android:textSize="@dimen/hj_font_size" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/hj_findnewpwdlin"
+                    android:layout_width="@dimen/hj_login_broadsizewidth"
+                    android:layout_height="@dimen/fq_login_register_frame_height"
+                    android:layout_below="@+id/hj_reggetcodelin"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/fq_inputframe_underline"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    >
+
+                    <ImageView
+                        android:layout_width="@dimen/hj_smallicon_size"
+                        android:layout_height="@dimen/hj_smallicon_size"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/fq_password_gray" />
+
+                    <EditText
+                        android:id="@+id/edt_newpwd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="8dp"
+                        android:background="@drawable/hj_login_bg_txt_null"
+                        android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
+                        android:maxLength="20"
+                        android:hint="@string/hj_find3_newpwd"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName"
+                        android:padding="4dp"
+                        android:singleLine="true"
+                        android:textColor="@color/hj_base_black"
+                        android:textColorHint="@color/hj_newhintgrey"
+                        android:textSize="@dimen/hj_font_size" >
+                    </EditText>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/btn_ok3"
+                     android:layout_width="@dimen/fq_okbtn_dimen"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/hj_findnewpwdlin"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/fq_okbtnshape"
+                    android:gravity="center"
+                    android:padding="9dp" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hj_btn_find_ok"
+                        android:textColor="@color/hj_base_white"
+                        android:textSize="@dimen/hj_font_size" />
+                </LinearLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/hj_titlelin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="8dp" >
+
+            <ImageView
+                android:id="@+id/btn_back1"
+                android:layout_width="@dimen/fq_activity_closeicon_frame"
+                android:layout_height="@dimen/fq_activity_closeicon_frame"
+                android:layout_marginRight="0dp"
+                android:padding="2dp"
+                android:src="@drawable/hj_newloginback"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/btn_back2"
+                android:layout_width="@dimen/fq_activity_closeicon_frame"
+                android:layout_height="@dimen/fq_activity_closeicon_frame"
+                android:layout_marginRight="0dp"
+                android:padding="2dp"
+                android:src="@drawable/hj_newloginback"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/btn_back3"
+                android:layout_width="@dimen/fq_activity_closeicon_frame"
+                android:layout_height="@dimen/fq_activity_closeicon_frame"
+                android:layout_marginRight="0dp"
+                android:padding="2dp"
+                android:src="@drawable/hj_newloginback"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,91 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.zsby.lqzg.nearme.gamecenter"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />    
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>  
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme"
+        android:name="com.huayang.common.platformsdk.appApplication" >
+        <activity
+            android:name="com.huayang.common.platformsdk.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        
+        
+            <!-- nearme game sdk config goes here -->
+        <meta-data android:name="debug_mode" android:value="false" />    <!-- 日志开关，发布时候设置为false -->
+		<meta-data android:name="is_offline_game" android:value="false" />  <!-- true:单机游戏   false:网游 -->
+		<meta-data android:name="app_key" android:value="d4a5b1294c1c4a0888cac95f1953474b" />  <!--appKey，游戏上线时请务必替换成游戏自身的appkey-->
+        
+		<activity
+			android:name="com.nearme.game.sdk.component.proxy.ProxyActivity"
+			android:configChanges="keyboardHidden|orientation|screenSize"
+			android:theme="@style/Theme_Dialog_Custom"
+			android:process=":gcsdk">
+		</activity>
+		<service
+			android:name="com.nearme.game.sdk.component.proxy.ProxyApiService"
+			android:process=":gcsdk"
+			android:priority="1000">
+		</service>
+        <receiver
+            android:name="com.nearme.game.sdk.component.proxy.ProxyUserCenterOperateReceiver"
+            android:exported="true" 
+            android:process=":gcsdk">
+            <intent-filter>
+                <action android:name="com.oppo.usercenter.account_login" />
+                <action android:name="com.oppo.usercenter.account_logout" />
+                <action android:name="com.oppo.usercenter.modify_name" />
+            </intent-filter>
+        </receiver>
+        <!-- nearme game sdk config end -->
+        <meta-data android:name="oppoappsecret" android:value="db4970dd9e3f4e5d95d5ebaf301273d0"/>
+          <meta-data
+            android:name="HyGamePlatformChannleId"
+            android:value="7" />
+        <meta-data
+            android:name="HyGame_GameId"
+            android:value="2001" />
+        <meta-data
+            android:name="HyGame_ChannelId"
+            android:value="2001108" />
+        <meta-data
+            android:name="HYGAME_APPKEY"
+            android:value="HY5CCB43EB70A75195CBBD1F5FDB0VV1" />
+        <meta-data
+            android:name="HyGame_MainActivityName"
+            android:value="com.hywl.huayang_channelsdk_yyb.QMainActivity" />
+      
+    </application>
+
+</manifest>

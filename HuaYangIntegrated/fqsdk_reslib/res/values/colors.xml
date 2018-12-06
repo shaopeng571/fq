@@ -1,0 +1,56 @@
+<resources>
+
+    <color name="hj_black_overlay">#66000000</color>
+    
+    <color name="hj_transparent_pay">#00000000</color>
+    <color name="hj_transparent_background">#80000000</color>
+    <color name="hj_transparent_txt_black">#90000000</color>
+    <color name="hj_transparent_bn_grey">#90cccccc</color>
+    <color name="hj_transparent_bg_white">#e4ffffff</color>
+    <color name="hj_transparent_bg_white_null">#00ffffff</color>
+    
+    <color name="hj_base_white">#ffffff</color>
+    <color name="hj_base_black">#000000</color>
+    <color name="hj_base_red">#ff0000</color>
+    <color name="hj_base_shallow_blue">#2DB9F4</color>
+    <color name="hj_base_yellow">#FEC262</color>
+    <color name="hj_base_blue">#0000FF</color>
+    <color name="hj_base_green">#83D253</color>
+    <color name="hj_fastlogin_color">#DA1026</color>
+     <color name="hj_login_color">#f8b62d</color>
+       <color name="hj_reg_color">#087AD1</color>
+    <color name="hj_base_grey">#B2B3B7</color>
+     <color name="hj_base_deeplittle_grey">#868686</color>
+     <color name="hj_base_textdeep_grey">#6F6E6E</color>
+     <color name="hj_base_backgroundlittle_grey">#EAEDF2</color>
+    <color name="hj_base_dreep_grey">#3E403F</color>
+    <color name="hj_base_orange">#FDB161</color>
+    <color name="hj_base_deep_orange">#FC7F4C</color>
+    <color name="hj_base_deep2_orange">#FFAB00</color>
+      <color name="hj_base_stoke_orange">#FF9422</color>
+    <color name="hj_base_black2">#111111</color>
+     <color name="hj_payactivity_gery">#5F6265</color>
+    <color name="hj_newloginlinelittlegrey">#ececec</color>
+      <color name="hj_newlinegrey">#c0c0c0</color>
+       <color name="hj_newhintgrey">#cbcbcb</color>
+       <color name="hj_new_orange">#f8b62d</color>
+              <color name="hj_new_btngrey">#CBCAC9</color>
+       <color name="hj_newhintdeepgrey">#a4a4a4</color>
+       <color name="hj_newselectregtypegrey">#f1f1f1</color>
+       <color name="hj_newreggetcodeblue">#75D9B5</color>
+       <color name="hj_newtextgrey">#6f6f6f</color>
+        <color name="hj_newtext_orange">#ff901a</color>
+         <color name="hj_newhjqq">#6dbcff</color>
+          <!-- Background color for light CardView. -->
+    <color name="cardview_light_background">#FFFAFAFA</color>
+	<!-- Background color for dark CardView. -->
+	<color name="cardview_dark_background">#FF202020</color>
+    <!-- Shadow color for the first pixels around CardView. -->
+    <color name="cardview_shadow_start_color">#37000000</color>
+    <!-- Shadow color for the furthest pixels around CardView. -->
+    <color name="cardview_shadow_end_color">#03000000</color>
+    
+    <color name="fq_findpwd_title_gray">#898989</color>
+    <color name="fq_main_orange">#f8b62d</color>
+    <color name="fq_main_gray">#898989</color>
+</resources>

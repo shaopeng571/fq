@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">huayang_channelsdk_yyb</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="qq_zoneid">1</string> 
+    <string name="qq_appid">1107934594</string>
+    <string name="qq_appkey">ItMGL0RCQxP52fep</string>
+    <string name="wx_appid">wx2a1911d4ead48bb9</string>
+    <string name="wx_appkey">c17ac611190d240fcadab8a3608bd4f9</string>
+    <string name="tlog">_gw_Tlog</string>
+    <string name="is_test">true</string>
+<string name="xg_appid">2100316726</string>
+    <string name="xg_accesskey">A3WQE695LG2M</string>
+</resources>
