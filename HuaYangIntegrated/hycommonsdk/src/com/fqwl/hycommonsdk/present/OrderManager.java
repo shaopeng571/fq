@@ -151,7 +151,7 @@ public class OrderManager {
 	 * @param newJson  参数登录后，刷新的新值
 	 */
 	public static void checkHistoryOrder(Activity activity, String chanleId, JSONObject newJson) {
-		SharedPreferences sharedPreferences = activity.getSharedPreferences("commonsdk", Context.MODE_PRIVATE);
+		SharedPreferences sharedPreferences = activity.getSharedPreferences("huayangcommon", Context.MODE_PRIVATE);
 		String data = sharedPreferences.getString(chanleId, "");
 		if (TextUtils.isEmpty(data)) {
 			return;
@@ -214,7 +214,7 @@ public class OrderManager {
 		}
 		// TODO Auto-generated method stub
 		FLogger.d("clearOrder");
-		SharedPreferences sharedPreferences = activity.getSharedPreferences("commonsdk", Context.MODE_PRIVATE);
+		SharedPreferences sharedPreferences = activity.getSharedPreferences("huayangcommon", Context.MODE_PRIVATE);
 		SharedPreferences.Editor editor = sharedPreferences.edit();
 		String data = sharedPreferences.getString(chanleId, "");
 		if (TextUtils.isEmpty(data)) {
@@ -254,7 +254,7 @@ public class OrderManager {
 	 */
 	private static void saveOrder(Activity activity, String chanleId, JSONObject result) {
 		// TODO Auto-generated method stub
-		SharedPreferences sharedPreferences = activity.getSharedPreferences("commonsdk", Context.MODE_PRIVATE);
+		SharedPreferences sharedPreferences = activity.getSharedPreferences("huayangcommon", Context.MODE_PRIVATE);
 		SharedPreferences.Editor editor = sharedPreferences.edit();
 		String data = sharedPreferences.getString(chanleId, "");
 		if (TextUtils.isEmpty(data)) {

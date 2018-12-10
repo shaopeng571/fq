@@ -704,7 +704,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.tomato.fqsdk_reslib:metaButtonBarButtonStyle
         */
-        public static int ButtonBarContainerTheme_metaButtonBarButtonStyle = 1;
+        public static final int ButtonBarContainerTheme_metaButtonBarButtonStyle = 1;
         /**
           <p>This symbol is the offset where the {@link com.tomato.fqsdk_reslib.R.attr#metaButtonBarStyle}
           attribute's value can be found in the {@link #ButtonBarContainerTheme} array.
@@ -714,6 +714,6 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
           @attr name com.tomato.fqsdk_reslib:metaButtonBarStyle
         */
-        public static int ButtonBarContainerTheme_metaButtonBarStyle = 0;
+        public static final int ButtonBarContainerTheme_metaButtonBarStyle = 0;
     };
 }

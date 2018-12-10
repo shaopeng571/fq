@@ -22,9 +22,7 @@ import com.fqwl.hycommonsdk.present.apiinteface.IWelcome;
 import com.fqwl.hycommonsdk.present.apiinteface.ImplCallback;
 import com.fqwl.hycommonsdk.present.apiinteface.SdkApi;
 import com.fqwl.hycommonsdk.util.ChannelConfigUtil;
-import com.fqwl.hycommonsdk.util.EncoderUtil;
 import com.fqwl.hycommonsdk.util.logutils.FLogger;
-import com.fqwl.hycommonsdk.util.logutils.Global;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -72,16 +70,16 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 		ucappid = ChannelConfigUtil.getMetaMsg(context, "ucappid");
 		FLogger.d(ucappid);
 		if (TextUtils.isEmpty(ucappid)) {
-			FLogger.d(Global.INNER_TAG, "初始化失败");
+			FLogger.d(  "初始化失败");
 			back.initOnFinish("初始化失败", -1);
 			return; 
 		}
 		if (!initUC) {
-			FLogger.d(Global.INNER_TAG, "未初始化..");
+			FLogger.d(  "未初始化..");
 			initUC(context, null);
 		}else {
-			FLogger.d(Global.INNER_TAG, "已初始化过..");
-			FLogger.d(Global.INNER_TAG, "回调初始化成功 ");
+			FLogger.d(  "已初始化过..");
+			FLogger.d(  "回调初始化成功 ");
 			mBack.initOnFinish("初始化成功", 0);
 		}
 		
@@ -91,7 +89,7 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 	public void initUC(final Activity context, final HyGameCallBack callback) {
 		if (receiver != null) {
 			FLogger.d("receiver已经注册初始化，停止再次调用 ");
-			FLogger.d(Global.INNER_TAG, "receiver已经注册初始化，停止再次调用 ");
+			FLogger.d(  "receiver已经注册初始化，停止再次调用 ");
 			return;
 		}
 		initUC = true;
@@ -100,7 +98,7 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 			@Subscribe(event = SDKEventKey.ON_INIT_SUCC)
 			private void onInitSucc() {
 				FLogger.d("onInitSucc  初始化成功");
-				FLogger.d(Global.INNER_TAG, "onInitSucc  初始化成功 ");
+				FLogger.d(  "onInitSucc  初始化成功 ");
 				isInitSuc = true;
 			}
 
@@ -108,13 +106,13 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 			private void onInitFailed(String data) {
 				FLogger.d("onInitFailed  初始化失败 msg=" + data);
 				mBack.initOnFinish("初始化失败", -1);
-				FLogger.d(Global.INNER_TAG, "onInitFailed  初始化失败 msg=" + data);
+				FLogger.d(  "onInitFailed  初始化失败 msg=" + data);
 			}
 
 			@Subscribe(event = SDKEventKey.ON_LOGIN_SUCC)
 			private void onLoginSucc(String sid) {
 				FLogger.d("onLoginSucc  登录成功");
-				FLogger.d(Global.INNER_TAG, "onLoginSucc  登录成功");
+				FLogger.d(  "onLoginSucc  登录成功");
 				JSONObject ob = new JSONObject();
 				try {
 					ob.put("sid", sid);
@@ -127,7 +125,7 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 					implCallback.onLoginVerify(ob);
 					// 浮标切换账号登录
 					if (isFloatLogin) {
-						FLogger.d(Global.INNER_TAG, "切换账号成功 code 4");
+						FLogger.d(  "切换账号成功 code 4");
 						FLogger.d("切换账号成功 code 4");
 						mBack.ReloginOnFinish("切换账号成功", 4);
 						implCallback.onLoginSuccess("", "", ob, "1", null);
@@ -235,10 +233,10 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 		}
 		Intent intent = context.getIntent();
 		String pullupInfo = intent.getDataString();
-		FLogger.d(Global.INNER_TAG, "pullupInfo:"+pullupInfo);
+		FLogger.d(  "pullupInfo:"+pullupInfo);
 		if (TextUtils.isEmpty(pullupInfo)) {
 			pullupInfo = intent.getStringExtra("data");
-			FLogger.d(Global.INNER_TAG, " getStringExtra pullupInfo:"+pullupInfo);
+			FLogger.d(  " getStringExtra pullupInfo:"+pullupInfo);
 		}
 		FLogger.d("uc pullupInfo " + pullupInfo);
 		// uc的
@@ -255,7 +253,7 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 			FLogger.d("initSdk chanle is " + getChannelID());
 			
 		} catch (AliLackActivityException e) {
-			FLogger.Ex(Global.INNER_TAG, e);
+			FLogger.Ex(  e);
 		}
 
 	}
@@ -340,35 +338,6 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 		
 	}
 
-	/**
-	 * 签名工具方法
-	 * 
-	 * @param reqMap
-	 * @return
-	 */
-	public static String sign(Map<String, String> reqMap, String signKey) {
-		// 将所有key按照字典顺序排序
-		TreeMap<String, String> signMap = new TreeMap<String, String>(reqMap);
-		StringBuilder stringBuilder = new StringBuilder(1024);
-		for (Map.Entry<String, String> entry : signMap.entrySet()) {
-			// sgin和signType不参与签名
-			if ("sign".equals(entry.getKey()) || "signType".equals(entry.getKey())) {
-				continue;
-			}
-			// 值为null的参数不参与签名
-			if (entry.getValue() != null) {
-				stringBuilder.append(entry.getKey()).append("=").append(entry.getValue());
-			}
-		}
-
-		// 拼接签名秘钥
-		stringBuilder.append(signKey);
-		FLogger.d("要签名的参数：" + stringBuilder.toString());
-		// 剔除参数中含有的'&'符号
-		String signSrc = stringBuilder.toString().replaceAll("&", "");
-		return EncoderUtil.encodeByMD5(signSrc).toLowerCase();
-	}
-
 	@Override
 	public boolean showExitView(Activity context) {
 		this.mActivity = context;
@@ -423,10 +392,10 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 	@Override
 	public void DoRelease(Activity activity) {
 		if (this.mRepeatCreate) {
-			FLogger.d(Global.INNER_TAG, "onActivityResult is repeat activity!");
+			FLogger.d(  "onActivityResult is repeat activity!");
             return;
         }
-		FLogger.d(Global.INNER_TAG, "DoRelease!");
+		FLogger.d(  "DoRelease!");
 		UCGameSdk.defaultSdk().unregisterSDKEventReceiver(receiver);
 	}
 
@@ -468,7 +437,7 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 		sdkParams.put(SDKParamKey.STRING_ZONE_NAME, data.getServerName());
 		sdkParams.put(SDKParamKey.LONG_ROLE_CTIME, RoleCTime);
 
-		FLogger.i(Global.INNER_TAG,
+		FLogger.i( 
 				"role_id=" + data.getRoleId() + " roleName=" + data.getRoleName() + "roleLevel=" + RoleLevel
 						+ " serverId=" + data.getServerId() + " serverName=" + data.getServerName() + " RoleCTime"
 						+ RoleCTime);
@@ -548,12 +517,12 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 	@Override
 	public void initWelcomeActivity(Activity activity, HyGameCallBack callback) {
 		if ((activity.getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
-            FLogger.i(Global.INNER_TAG, "onCreate with flag FLAG_ACTIVITY_BROUGHT_TO_FRONT");
+            FLogger.i(  "onCreate with flag FLAG_ACTIVITY_BROUGHT_TO_FRONT");
             mRepeatCreate = true;
             activity.finish();
             return;
         }else {
-        	 FLogger.i(Global.INNER_TAG, "initWelcomeActivity");
+        	 FLogger.i(  "initWelcomeActivity");
         	 initUC(activity, callback);
         }
 		

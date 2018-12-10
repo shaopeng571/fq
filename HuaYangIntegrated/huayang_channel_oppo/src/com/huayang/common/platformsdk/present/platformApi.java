@@ -15,7 +15,6 @@ import com.fqwl.hycommonsdk.present.apiinteface.ImplCallback;
 import com.fqwl.hycommonsdk.present.apiinteface.SdkApi;
 import com.fqwl.hycommonsdk.util.ChannelConfigUtil;
 import com.fqwl.hycommonsdk.util.logutils.FLogger;
-import com.fqwl.hycommonsdk.util.logutils.Global;
 import com.nearme.game.sdk.GameCenterSDK;
 import com.nearme.game.sdk.callback.ApiCallback;
 import com.nearme.game.sdk.callback.GameExitCallback;
@@ -60,7 +59,7 @@ public class platformApi implements SdkApi {
 
 				oppoappsecret =ChannelConfigUtil.getMetaMsg(context, "oppoappsecret");
 
-				FLogger.d(Global.INNER_TAG, "oppoappsecret="+oppoappsecret);
+				FLogger.d( "oppoappsecret="+oppoappsecret);
 				GameCenterSDK.init(oppoappsecret, context);
 
 				callBack.initOnFinish("初始化成功", 0);
@@ -104,7 +103,7 @@ public class platformApi implements SdkApi {
 												object.put("token", token);
 												object.put("ssoid", sdkuid);
 												//ResultNotify.ShowLoginSucess(mActivity, uid, userName, chanle, mBack);
-												FLogger.d(Global.INNER_TAG, "开始验证:"+token+" "+sdkuid);
+												FLogger.d( "开始验证:"+token+" "+sdkuid);
 												implCallback.onLoginVerify(object);
 //												implCallback.onLoginSuccess(sdkuid, userName, object, null, null);
 											} catch (Exception e) {
@@ -150,18 +149,18 @@ public class platformApi implements SdkApi {
 		payInfo.setProductName(ChargeInfo.getGoods_name());
 		payInfo.setCallbackUrl("http://api-sdk.huayang.fun/v1/channel/pay_notify/game_code/cytl/channel_code/2001108");
 		Context oppoContext=activity;
-		FLogger.i(Global.INNER_TAG, "开始充值..");
+		FLogger.i( "开始充值..");
 		GameCenterSDK.getInstance().doPay(oppoContext, payInfo, new ApiCallback() {
 
 			@Override
 			public void onSuccess(String resultMsg) {
-				FLogger.d(Global.INNER_TAG, "充值成功 :"+resultMsg);
+				FLogger.d( "充值成功 :"+resultMsg);
 				implCallback.onPayFinish(0);
 			}
 
 			@Override
 			public void onFailure(String resultMsg, int resultCode) {
-				FLogger.d(Global.INNER_TAG, "充值失败 :"+resultMsg+" resultCode:"+resultCode);
+				FLogger.d( "充值失败 :"+resultMsg+" resultCode:"+resultCode);
 				implCallback.onPayFinish(-2);
 			}
 		});
@@ -285,12 +284,12 @@ public class platformApi implements SdkApi {
 
 						@Override
 						public void onSuccess(String resultMsg) {
-							FLogger.d(Global.INNER_TAG	, "resultMsg "+resultMsg);
+							FLogger.d("resultMsg "+resultMsg);
 						}
 
 						@Override
 						public void onFailure(String resultMsg, int resultCode) {
-							FLogger.e(Global.INNER_TAG	, "resultCode="+resultCode+" resultMsg "+resultMsg);
+							FLogger.e("resultCode="+resultCode+" resultMsg "+resultMsg);
 						}
 					});
 		

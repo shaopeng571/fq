@@ -10,18 +10,14 @@ import java.util.concurrent.TimeUnit;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+
 
 import com.fqwl.hycommonsdk.bean.ResultInfo;
 import com.fqwl.hycommonsdk.model.CommonSDKHttpCallback;
 import com.fqwl.hycommonsdk.util.ToastUtil;
 import com.fqwl.hycommonsdk.util.logutils.FLogger;
 import com.fqwl.hycommonsdk.util.logutils.Global;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+
 
 import okhttp3.Call;
 import okhttp3.Callback;
