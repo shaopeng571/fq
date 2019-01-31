@@ -18,8 +18,16 @@ public class CommonSdkExtendData {
 	private String party_name="";
 	private String roleCTime = "";//角色创建时间(单位：秒 即10位数)，必须传服务器时间
 	private String roleLevelMTime = "";//角色等级变化时间(单位：秒 即10位数)，必须传服务器时间
+	private String game_version;//不是必须参数
 	
-	
+	public String getGame_version() {
+		return game_version;
+	}
+
+	public void setGame_version(String game_version) {
+		this.game_version = game_version;
+	}
+
 	public String getRoleCTime() {
 		return roleCTime;
 	}

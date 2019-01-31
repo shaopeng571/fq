@@ -266,6 +266,9 @@ public class HyApi {
 					if (isSuccessful) {
 							FLogger.d(result);
 							// 数据是否为空
+							if (result.equals("success")) {
+								
+							}
 							if (!TextUtils.isEmpty(result)) {
 								// TODO Auto-generated method stub
 								JSONObject jsonObject = null;
@@ -408,7 +411,17 @@ public class HyApi {
 	public void hyPayNotify(String behavior, String map,final CommonSDKHttpCallback httpCallback) {
 		String url = SDKMAIN + behavior;
 		
-		FLogger.e(HttpRequest.post(url, getMap(map)));
+		String resultJson=HttpRequest.post(url, getMap(map));
+		try {
+			ResultInfo ri=new ResultInfo();
+			ri.code=Integer.valueOf( (new JSONObject(resultJson).optString("ret")));
+			ri.msg=(new JSONObject(resultJson).optString("msg"));
+			httpCallback.onResult(ri, ri.msg);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	
 	public static Map<String, String> getMap(String jsonString)

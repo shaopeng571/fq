@@ -51,7 +51,7 @@
                 android:layout_marginBottom="@dimen/hj_login_Roundpandingtopandbottom"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="@dimen/hj_login_Roundpandingtopandbottom"
-                android:src="@drawable/cl_logo_pro" />
+                />
 
            <RelativeLayout
                 android:layout_width="wrap_content"

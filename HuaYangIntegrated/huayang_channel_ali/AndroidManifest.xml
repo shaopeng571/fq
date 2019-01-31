@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.zsby.lqzg.aligames"
+    package="com.zsby.tlzs.aligames"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -60,7 +60,7 @@
             android:exported="true"
             android:label="PullupActivity"
             android:launchMode="singleTop"
-            android:taskAffinity="com.zsby.lqzg.aligames.diff"
+            android:taskAffinity="com.zsby.tlzs.aligames.diff"
             android:theme="@android:style/Theme.Translucent" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -68,7 +68,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="ng1031047" />
+                <data android:scheme="ng1016590" />
             </intent-filter>
         </activity>
         <activity
@@ -119,7 +119,7 @@
             android:value="2001" />
         <meta-data
             android:name="HyGame_ChannelId"
-            android:value="2001109" />
+            android:value="2001112" />
         <meta-data
             android:name="HYGAME_APPKEY"
             android:value="HY5CCB43EB70A75195CBBD1F5FDB0VV1" />

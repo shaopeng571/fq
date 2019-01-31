@@ -1,6 +1,7 @@
 package com.tomato.fqsdk.control;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.os.Bundle;
@@ -15,8 +16,6 @@ import java.util.Map;
 
 import com.tomato.fqsdk.HyLoginActivity;
 import com.tomato.fqsdk.base.BaseActivity;
-import com.tomato.fqsdk.clinterface.HyInterface.OnInitFinishedListener;
-import com.tomato.fqsdk.clinterface.HyInterface.OnLoginFinishedListener;
 import com.tomato.fqsdk.data.CLData;
 import com.tomato.fqsdk.data.PostUserInfo;
 import com.tomato.fqsdk.fqutils.FLogger;
@@ -27,10 +26,11 @@ import com.tomato.fqsdk.models.HyRoleData;
 import com.tomato.fqsdk.models.ControlConfig;
 import com.tomato.fqsdk.models.HyInitInfo;
 import com.tomato.fqsdk.utils.CLNaviteHelper;
-import com.tomato.fqsdk.utils.CrashHandler;
+import com.tomato.fqsdk.utils.FindResHelper;
 import com.tomato.fqsdk.utils.HJGameDBHelper;
 import com.tomato.fqsdk.utils.HyAppUtils;
 import com.tomato.fqsdk.utils.NetWorkUtil;
+import com.tomato.fqsdk.utils.SpUtils;
 import com.tomato.fqsdk.utils.Tools;
 import com.tomato.fqsdk.utils.HJGameDBHelper.HJGame;
 
@@ -48,6 +48,8 @@ public class HySDK {
 	public void openLoginToast(boolean loginToast) {
 		LoginToast = loginToast;
 	}
+	
+	
 
 	public static HySDK getInstance() {
 		if (clsdk == null) {
@@ -70,9 +72,9 @@ public class HySDK {
 			}
 			switch (msg.what) {
 			case install:
-				if (!Tools.getSharedPreference(context, "install").equals(CLCommon.YES)) {
+				if (!SpUtils.getStringValue(context, "install").equals(CLCommon.YES)) {
 					// Log.e("CL", "install");
-					Tools.saveSharedPreference(context, "install", CLCommon.YES);
+					SpUtils.setStringValue(context, "install", CLCommon.YES);
 					PostUserInfo.HJinstall(context);
 				}
 				break;
@@ -97,31 +99,31 @@ public class HySDK {
 		BaseActivity.setvisibility = 1;
 	}
 
-	public void HyInitSDK(Activity activity, HyInitInfo initInfo,OnInitFinishedListener iBack) {
+	public void HyInitSDK(Activity activity, HyInitInfo initInfo,FQSdkCallBack iBack) {
 		boolean isDebug = initInfo.isDebug();
 		FLogger.init(isDebug, "fq");
-		try {
-			if (!Tools.initInfoCheck(initInfo)) {
-				iBack.onInitFinish(0, "初始化失败");
-				return;
-			}
-			
-		} catch (InvocationTargetException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IllegalAccessException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
+//		try {
+//			if (!Tools.initInfoCheck(initInfo)) {
+//				iBack.onInitFinish(0, "初始化失败");
+//				return;
+//			}
+//			
+//		} catch (InvocationTargetException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		} catch (IllegalAccessException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
 
 		String appid = initInfo.getGameId();
 		String appversion = initInfo.getGameVersion();
 		
 
-		CrashHandler crashHandler = CrashHandler.getInstance();
-		crashHandler.init(activity);
-
+//		CrashHandler crashHandler = CrashHandler.getInstance();
+//		crashHandler.init(activity);
+		
 		context = activity.getApplicationContext();
 		controlCenter = CLControlCenter.getInstance();
 
@@ -148,7 +150,7 @@ public class HySDK {
 			hjData.getFailureAllData();
 		}
 		
-		iBack.onInitFinish(1, "初始化成功");
+		iBack.initOnFinish(1, "初始化成功");
 	}
 
 	private void CheckInstall(String channel, String gameid) {
@@ -164,13 +166,13 @@ public class HySDK {
 		// Tools.readFile(filePath)
 	}
 
-	public void HyShowLoginView(Context context, OnLoginFinishedListener iBack) {
+	public void HyShowLoginView(Activity activity, FQSdkCallBack iBack) {
 		if (HyLoginActivity.LOGINACTIVITY != 1) {
 			if (!HJisInit) {
 				com.tomato.fqsdk.fqutils.FLogger.d("----HySDK Hasn't been initialized----");
 				return;
 			}
-			controlCenter.HJstartLogin(context, iBack);
+			controlCenter.HJstartLogin(activity, iBack);
 		}
 	}
 
@@ -182,7 +184,7 @@ public class HySDK {
 	 * @param paramOnPayFinishedListener
 	 */
 
-	public void HyShowPayView(Context context, HyPayInfo hyPayInfo) {
+	public void HyShowPayView(Activity context, HyPayInfo hyPayInfo) {
 		if (!HJisInit) {
 			FLogger.d("----HYSDK Hasn't been initialized----");
 			return;
@@ -397,4 +399,12 @@ public class HySDK {
 	public static void HyToast(String msg) {
 		Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
 	}
+	
+	public void getApplication(Application application) {
+		context=application.getApplicationContext();
+		FindResHelper.init(application);
+	}
+	 public static Context getAppContext() { 
+         return HySDK.context; 
+     } 
 }

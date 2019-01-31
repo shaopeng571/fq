@@ -96,5 +96,11 @@
         <item name="android:windowNoTitle">true</item>  
     </style> 
     <!-- loading 样式 end -->
+<style name="fq_Dialog" parent="@android:Theme.DeviceDefault.Light.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 
 </resources>

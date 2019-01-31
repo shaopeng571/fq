@@ -18,61 +18,61 @@ public final class R {
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f040000;
-        public static final int activity_vertical_margin=0x7f040001;
+        public static int activity_horizontal_margin=0x7f040000;
+        public static int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int ic_launcher_background=0x7f020001;
-        public static final int ic_launcher_foreground=0x7f020002;
-        public static final int mio_btn_bg=0x7f020003;
-        public static final int mio_btn_bg_click=0x7f020004;
-        public static final int mio_btn_change_account_nor=0x7f020005;
-        public static final int mio_btn_change_account_sel=0x7f020006;
-        public static final int mio_close=0x7f020007;
-        public static final int mio_icon_login_wait=0x7f020008;
-        public static final int mio_img_title=0x7f020009;
-        public static final int mio_list_item_single_bg_60_n=0x7f02000a;
-        public static final int mio_list_item_single_bg_60_p=0x7f02000b;
-        public static final int mio_login_third_account_mi=0x7f02000c;
-        public static final int mio_login_third_account_mi_pure=0x7f02000d;
-        public static final int mio_login_third_account_qq=0x7f02000e;
-        public static final int mio_login_third_account_qq_pure=0x7f02000f;
-        public static final int mio_login_third_account_wb=0x7f020010;
-        public static final int mio_login_third_account_wx=0x7f020011;
-        public static final int mio_mipay_payment_alipay=0x7f020012;
-        public static final int mio_mipay_payment_arrow=0x7f020013;
-        public static final int mio_mipay_payment_wx=0x7f020014;
-        public static final int mio_pad_bg_float_win=0x7f020015;
-        public static final int mio_selector_mipayment_item=0x7f020016;
+        public static int ic_launcher=0x7f020000;
+        public static int ic_launcher_background=0x7f020001;
+        public static int ic_launcher_foreground=0x7f020002;
+        public static int mio_btn_bg=0x7f020003;
+        public static int mio_btn_bg_click=0x7f020004;
+        public static int mio_btn_change_account_nor=0x7f020005;
+        public static int mio_btn_change_account_sel=0x7f020006;
+        public static int mio_close=0x7f020007;
+        public static int mio_icon_login_wait=0x7f020008;
+        public static int mio_img_title=0x7f020009;
+        public static int mio_list_item_single_bg_60_n=0x7f02000a;
+        public static int mio_list_item_single_bg_60_p=0x7f02000b;
+        public static int mio_login_third_account_mi=0x7f02000c;
+        public static int mio_login_third_account_mi_pure=0x7f02000d;
+        public static int mio_login_third_account_qq=0x7f02000e;
+        public static int mio_login_third_account_qq_pure=0x7f02000f;
+        public static int mio_login_third_account_wb=0x7f020010;
+        public static int mio_login_third_account_wx=0x7f020011;
+        public static int mio_mipay_payment_alipay=0x7f020012;
+        public static int mio_mipay_payment_arrow=0x7f020013;
+        public static int mio_mipay_payment_wx=0x7f020014;
+        public static int mio_pad_bg_float_win=0x7f020015;
+        public static int mio_selector_mipayment_item=0x7f020016;
     }
     public static final class id {
-        public static final int act_item_arrow=0x7f080006;
-        public static final int iv_logo=0x7f080004;
-        public static final int ll_container=0x7f080000;
-        public static final int lv_pay=0x7f080003;
-        public static final int mio_method_square_item_icon=0x7f080008;
-        public static final int mio_method_square_item_title=0x7f080009;
-        public static final int mipay_method_square=0x7f080007;
-        public static final int tv_name=0x7f080005;
-        public static final int tv_price=0x7f080002;
-        public static final int tv_purchase_name=0x7f080001;
+        public static int act_item_arrow=0x7f080006;
+        public static int iv_logo=0x7f080004;
+        public static int ll_container=0x7f080000;
+        public static int lv_pay=0x7f080003;
+        public static int mio_method_square_item_icon=0x7f080008;
+        public static int mio_method_square_item_title=0x7f080009;
+        public static int mipay_method_square=0x7f080007;
+        public static int tv_name=0x7f080005;
+        public static int tv_price=0x7f080002;
+        public static int tv_purchase_name=0x7f080001;
     }
     public static final class integer {
-        public static final int MiLinkGroupAppID=0x7f050000;
+        public static int MiLinkGroupAppID=0x7f050000;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int mio_activity_paylist=0x7f030001;
-        public static final int mio_item_pay=0x7f030002;
-        public static final int mio_login_item_method_square=0x7f030003;
+        public static int activity_main=0x7f030000;
+        public static int mio_activity_paylist=0x7f030001;
+        public static int mio_item_pay=0x7f030002;
+        public static int mio_login_item_method_square=0x7f030003;
     }
     public static final class string {
-        public static final int action_settings=0x7f060002;
-        public static final int app_name=0x7f060000;
-        public static final int hello_world=0x7f060001;
-        public static final int xiaomi_appid=0x7f060003;
-        public static final int xiaomi_appkey=0x7f060004;
+        public static int action_settings=0x7f060002;
+        public static int app_name=0x7f060000;
+        public static int hello_world=0x7f060001;
+        public static int xiaomi_appid=0x7f060003;
+        public static int xiaomi_appkey=0x7f060004;
     }
     public static final class style {
         /** 
@@ -96,10 +96,10 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f070000;
+        public static int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f070001;
+        public static int AppTheme=0x7f070001;
     }
 }

@@ -2,7 +2,6 @@ package com.fqwl.hycommonsdk.model;
 
 import java.io.Serializable;
 
-import com.tomato.fqsdk.models.HyPayInfo;
 
 import android.text.TextUtils;
 

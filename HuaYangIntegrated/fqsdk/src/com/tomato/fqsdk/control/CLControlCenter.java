@@ -14,8 +14,6 @@ import com.tomato.fqsdk.HyAgreementActivity;
 import com.tomato.fqsdk.HyLoginActivity;
 import com.tomato.fqsdk.HyPayMainActivity;
 import com.tomato.fqsdk.HyRegActivity;
-import com.tomato.fqsdk.clinterface.HyInterface.OnInitFinishedListener;
-import com.tomato.fqsdk.clinterface.HyInterface.OnLoginFinishedListener;
 import com.tomato.fqsdk.data.PostUserInfo;
 import com.tomato.fqsdk.data.HyApi.HttpCallback;
 import com.tomato.fqsdk.fqutils.FLogger;
@@ -28,13 +26,14 @@ import com.tomato.fqsdk.models.ControlConfig;
 import com.tomato.fqsdk.utils.FindResHelper;
 import com.tomato.fqsdk.utils.HJAccountDBHelper;
 import com.tomato.fqsdk.utils.JsonParse;
+import com.tomato.fqsdk.utils.SpUtils;
 import com.tomato.fqsdk.utils.Tools;
 
 public class CLControlCenter {
 
 	//     ģʽ
 	private static CLControlCenter controlcenter;
-
+	FQSdkCallBack mBack;
 	private CLControlCenter() {
 
 	}
@@ -71,17 +70,17 @@ public class CLControlCenter {
 	}
 
 	// ο     
-	public String getTempName(Context context) {
-		return Tools.getSharedPreference(context, CLCommon.TEMPACCOUNT);
-	}
+//	public String getTempName(Context context) {
+//		return Tools.getSharedPreference(context, CLCommon.TEMPACCOUNT);
+//	}
 
 	public void setTempName(Context context,String tempName) {
 			Tools.saveSharedPreference(context, CLCommon.TEMPACCOUNT, tempName);
 	}
 
-	public boolean isTemp(Context context){
-		return !Tools.getSharedPreference(context, CLCommon.TEMPACCOUNT).equals("");
-	}
+//	public boolean isTemp(Context context){
+//		return !Tools.getSharedPreference(context, CLCommon.TEMPACCOUNT).equals("");
+//	}
 
 	public BaseInfo getBaseInfo() {
 	return this.baseInfo;
@@ -113,13 +112,12 @@ public class CLControlCenter {
 		this.gamename = gamename;
 	}
 
-	public void init(final Context context) {
+	public void init(final Activity context) {
 		this.baseInfo = new BaseInfo(context);
-		FindResHelper.init(context);
 		hjAccountDBHelper =HJAccountDBHelper.getInstance(context);
-        if (isTemp(context)) {
-			setTempName(context,Tools.getSharedPreference(context, CLCommon.TEMPACCOUNT));
-		}
+//        if (isTemp(context)) {
+//			setTempName(context,Tools.getSharedPreference(context, CLCommon.TEMPACCOUNT));
+//		}
 	}
 	public void initBaseInfo(Context context){
 		this.baseInfo = new BaseInfo(context);
@@ -141,33 +139,33 @@ public class CLControlCenter {
 
 
 	//   ע ᴰ  
-	public void HJstartReg(Context paramContext) {
+	public void HJstartReg(Activity paramContext) {
 		paramContext
 				.startActivity(new Intent(paramContext, HyRegActivity.class));
 	}
 
 	//           
-	public void HJstartAgreement(Context paramContext) {
+	public void HJstartAgreement(Activity paramContext) {
 		paramContext.startActivity(new Intent(paramContext,
 				HyAgreementActivity.class));
 	}
 
 	//  򿪵 ¼    
-	public void HJstartLogin(Context fromContext, OnLoginFinishedListener iBack) {
+	public void HJstartLogin(Activity activity, FQSdkCallBack iBack) {
 		if (iBack != null) {
-			onLoginFinishedListener = iBack;
+			mBack = iBack;
 		}
-		if (isFirstGame(fromContext)) {
-			gotoRegActivity((Activity)fromContext);
+		if (isFirstGame(activity)) {
+			gotoRegActivity(activity);
 //			fromContext.startActivity(new Intent(fromContext, HyRegActivity.class));
 		}else {
-			fromContext.startActivity(new Intent(fromContext, HyLoginActivity.class));
+			activity.startActivity(new Intent(activity, HyLoginActivity.class));
 		}
 		
 		
 	}
-	public static void onLoginFinished(int ret,HyLoginResult hjLoginResult){
-		onLoginFinishedListener.onLoginFinished(ret,hjLoginResult);
+	public void onLoginFinished(int ret,HyLoginResult hjLoginResult){
+		mBack.loginOnFinish(ret, hjLoginResult);
 	}
 	/**
 	 * ֧  ҳ  
@@ -176,7 +174,7 @@ public class CLControlCenter {
 	 * @param hjPayRequest
 	 * @param paramOnPayFinishedListener
 	 */
-	public void HJstartPay(Context paramContext, HyPayInfo hjPayRequest) {
+	public void HJstartPay(Activity paramContext, HyPayInfo hjPayRequest) {
 //		if (paramOnPayFinishedListener != null) {
 //			onPayFinishedListener = paramOnPayFinishedListener;
 //		}
@@ -192,20 +190,20 @@ public class CLControlCenter {
 		intent.putExtras(bundle);
 		paramContext.startActivity(intent);
 	}
-	private static OnLoginFinishedListener onLoginFinishedListener = new OnLoginFinishedListener() {
-		public void onLoginFinished(int resultCode,HyLoginResult paramUser) {
-		}
-	};
+//	private static OnLoginFinishedListener onLoginFinishedListener = new OnLoginFinishedListener() {
+//		public void onLoginFinished(int resultCode,HyLoginResult paramUser) {
+//		}
+//	};
 
 	/**
 	 *  Ƿ  һ ν     Ϸ
 	 * fsp  2018  9  12  
 	 */
-	private boolean isFirstGame(Context context) {
+	private boolean isFirstGame(Activity context) {
 		
-		if (Tools.getSharedPreference(context, CLCommon.ISFIRSTGAME).equals("")) {
-			//  һ ν   Ϸ
-			Tools.saveSharedPreference(context, CLCommon.ISFIRSTGAME, "1");
+		if (SpUtils.getStringValue(context, CLCommon.isfirstgame).equals("")) {
+
+			SpUtils.setStringValue(context, CLCommon.isfirstgame, "1");
 			return true;
 		}
 		return false;
@@ -227,7 +225,6 @@ public class CLControlCenter {
 					public void onError(String msg) {
 						// TODO Auto-generated method stub
 						super.onError(msg);
-						Toast.makeText(HySDK.context, "     С   ˣ       ", Toast.LENGTH_SHORT).show();
 					}
 					@Override
 					public void onSuccess(String responseString) {

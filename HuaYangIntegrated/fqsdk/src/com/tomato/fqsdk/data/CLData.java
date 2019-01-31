@@ -31,6 +31,7 @@ import com.tomato.fqsdk.utils.CryptHelper;
 import com.tomato.fqsdk.utils.HJGameDataDBHelper;
 import com.tomato.fqsdk.utils.HyAppUtils;
 import com.tomato.fqsdk.utils.NetWorkUtil;
+import com.tomato.fqsdk.utils.SpUtils;
 import com.tomato.fqsdk.utils.Tools;
 import com.tomato.fqsdk.utils.HJGameDataDBHelper.HJGameData;
 
@@ -55,7 +56,7 @@ public class CLData {
 	 */
 	private static JSONObject GetOriginalData() {
 		try {
-			JSONObject originaldata = new JSONObject(Tools.getSharedPreference(
+			JSONObject originaldata = new JSONObject(SpUtils.getStringValue(
 					HySDK.context, CLCommon.ORIGINALDATA));
 			return originaldata;
 		} catch (JSONException e) {

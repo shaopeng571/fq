@@ -1,6 +1,7 @@
 package com.tomato.fqsdk.base;
 
 import com.tomato.fqsdk.control.CLControlCenter;
+import com.tomato.fqsdk.control.HySDK;
 import com.tomato.fqsdk.data.PostUserInfo;
 import com.tomato.fqsdk.models.CLCommon;
 import com.tomato.fqsdk.models.HyLoginResult;
@@ -35,7 +36,7 @@ public void onWindowFocusChanged(boolean hasFocus) {
 protected void onNewIntent(Intent intent) {
 	// TODO Auto-generated method stub
 	super.onNewIntent(intent);
-	progressDialog=CustomProgressDialog.createDialog(this);
+	progressDialog=CustomProgressDialog.createDialog(HySDK.getAppContext());
 }
 abstract public void initView();
 
@@ -50,7 +51,7 @@ public void onLoginFinished(int ret,HyLoginResult paramUser) {
 	}else {
 		paramUser.setBehavior("cancel");
 	}
-	CLControlCenter.onLoginFinished(ret, paramUser);
+	CLControlCenter.getInstance().onLoginFinished(ret, paramUser);
 	finish();
 }
 //api19    ȫ    ʾ

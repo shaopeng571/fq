@@ -253,13 +253,15 @@ public class HyLoginActivity extends BaseActivity implements OnClickListener {
 						HyLoginActivity.class);
 				startActivity(intent);
 				this.finish();
-			} else if (mCount == 0 && !mControlCenter.isTemp(context)) {
-				Intent intent = new Intent(HyLoginActivity.this,
-						HyLoginActivity.class);
-				intent.putExtra("ISGUIDE", true);
-				startActivity(intent);
-				this.finish();
-			} else {
+			} 
+//			else if (mCount == 0 && !mControlCenter.isTemp(context)) {
+//				Intent intent = new Intent(HyLoginActivity.this,
+//						HyLoginActivity.class);
+//				intent.putExtra("ISGUIDE", true);
+//				startActivity(intent);
+//				this.finish();
+//			} 
+			else {
 				//  ¼ȡ  
 				HyLoginResult rl = HyLoginResult.getInstance();
 				onLoginFinished(1, rl);
@@ -915,13 +917,13 @@ public class HyLoginActivity extends BaseActivity implements OnClickListener {
 	 **/
 	public void storeAccount(String account, String pwd, String time) {
 		//       ο  ʺţ  ȱ  浽   ݿ 
-		if (mControlCenter.isTemp(context)) {
-			String tempAccount = mControlCenter.getTempName(context);
-			mControlCenter.setTempName(context, "");
-			Long tsLong = System.currentTimeMillis() / 1100;
-			String timez = tsLong.toString();
-			storeAccount(tempAccount, tempAccount, timez);
-		}
+//		if (mControlCenter.isTemp(context)) {
+//			String tempAccount = mControlCenter.getTempName(context);
+//			mControlCenter.setTempName(context, "");
+//			Long tsLong = System.currentTimeMillis() / 1100;
+//			String timez = tsLong.toString();
+//			storeAccount(tempAccount, tempAccount, timez);
+//		}
 		// String enpwd = new String(Base64.encode(pwd.getBytes(), 0));
 		String enpwd = "";
 		try {

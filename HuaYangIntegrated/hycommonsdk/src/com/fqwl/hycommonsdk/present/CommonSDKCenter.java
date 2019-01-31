@@ -13,6 +13,7 @@ import com.fqwl.hycommonsdk.model.CommonSdkExtendData;
 import com.fqwl.hycommonsdk.model.CommonSdkInitInfo;
 import com.fqwl.hycommonsdk.model.CommonSdkLoginInfo;
 import com.fqwl.hycommonsdk.model.CommonSDKHttpCallback;
+import com.fqwl.hycommonsdk.model.CommonSDKMustPutData;
 import com.fqwl.hycommonsdk.present.apiinteface.ActivityCycle;
 import com.fqwl.hycommonsdk.present.apiinteface.HyGameCallBack;
 import com.fqwl.hycommonsdk.present.apiinteface.IApplication;
@@ -26,14 +27,15 @@ import com.fqwl.hycommonsdk.util.CommonUtils;
 import com.fqwl.hycommonsdk.util.ToastUtil;
 import com.fqwl.hycommonsdk.util.logutils.FLogger;
 import com.fqwl.hycommonsdk.util.logutils.Global;
-import com.tomato.fqsdk.clinterface.HyInterface.OnInitFinishedListener;
-import com.tomato.fqsdk.control.HySDK;
-import com.tomato.fqsdk.models.HyInitInfo;
+
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Application;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
@@ -62,18 +64,8 @@ public class CommonSDKCenter implements SdkApi, IRoleDataAnaly, ActivityCycle, I
 		sdkImpl = getChannelImpl(activity);
 		isInitOK = true;
 		FLogger.d("初始化渠道...");
-		// =======
-		HyInitInfo initInfo = new HyInitInfo();
-		initInfo.setDebug(info.isDebug());
-		initInfo.setGameId(ChannelConfigUtil.getGameId(activity));
-		initInfo.setGameVersion(info.getGameVersion());
-		HySDK.getInstance().HyInitSDK(activity, initInfo, new OnInitFinishedListener() {
-
-			@Override
-			public void onInitFinish(int code, String desc) {
-
-			}
-		});
+		//===初始化sdk必要提交数据
+		CommonSDKMustPutData.getInstance().setGameVersion(info.getGameVersion());
 		// ===========
 		sdkImpl.init(activity, info, callBack, new MyImplCallback(activity, callBack, sdkImpl));
 
@@ -130,11 +122,46 @@ public class CommonSDKCenter implements SdkApi, IRoleDataAnaly, ActivityCycle, I
 		});
 
 	}
-
+	private AlertDialog exitDialog;
 	@Override
 	public boolean showExitView(Activity activity) {
 		// TODO Auto-generated method stub
-		return sdkImpl.showExitView(activity);
+		if (hasExitView()) {
+			FLogger.d("showExitView");
+			return sdkImpl.showExitView(activity);
+		}else {
+			if (exitDialog != null) {
+			FLogger.d(Global.INNER_TAG, "已弹出");
+			return false;
+		}
+		
+		// cp自己实现退出界面
+		AlertDialog.Builder builder;
+		if (Build.VERSION.SDK_INT >= 21) {
+			builder = new AlertDialog.Builder(activity, android.R.style.Theme_Material_Light_Dialog_Alert);
+		} else {
+			builder = new AlertDialog.Builder(activity, AlertDialog.THEME_HOLO_LIGHT);
+		}
+		builder.setMessage("确定退出游戏?");
+		builder.setCancelable(true);
+		builder.setPositiveButton("继续游戏", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				FLogger.i(Global.INNER_TAG, "点击了继续游戏");
+				exitDialog = null;
+			}
+		});
+		builder.setNeutralButton("退出游戏", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				FLogger.i(Global.INNER_TAG, "点击了退出游戏");
+				exitDialog = null;
+				logout();
+			}
+		});
+		exitDialog = builder.create();
+		exitDialog.show();
+			return true;
+		}
+		
 	}
 
 	@Override
@@ -197,7 +224,7 @@ public class CommonSDKCenter implements SdkApi, IRoleDataAnaly, ActivityCycle, I
 
 		roleCreate(mainActivity, data);
 
-		ApiClient.getInstance().roleCreate(data, null);
+		ApiClient.getInstance().roleCreate(mainActivity,data, null);
 
 	}
 
@@ -220,7 +247,7 @@ public class CommonSDKCenter implements SdkApi, IRoleDataAnaly, ActivityCycle, I
 	public void sendExtendDataRoleLevelUpdate(final Activity mainActivity, final CommonSdkExtendData data) {
 		roleLevelUpdate(mainActivity, data);
 
-		ApiClient.getInstance().roleLevelUpdate(data, null);
+		ApiClient.getInstance().roleLevelUpdate(mainActivity,data, null);
 	}
 
 	@Override
@@ -234,13 +261,13 @@ public class CommonSDKCenter implements SdkApi, IRoleDataAnaly, ActivityCycle, I
 
 	public void sendExtendDataRoleLogout(final Activity mainActivity, final CommonSdkExtendData data) {
 
-		ApiClient.getInstance().rolelogOut(data, null);
+		ApiClient.getInstance().rolelogOut(mainActivity,data, null);
 	}
 
 	public void sendExtendDataRoleOther(final Activity mainActivity, final CommonSdkExtendData data, String behavior,
 			Map<String, Object> dataMap) {
 
-		ApiClient.getInstance().roleOther(data, behavior, dataMap);
+		ApiClient.getInstance().roleOther(mainActivity,data, behavior, dataMap);
 	}
 
 	@Override
@@ -262,7 +289,7 @@ public class CommonSDKCenter implements SdkApi, IRoleDataAnaly, ActivityCycle, I
 //		if (TextUtils.isEmpty(sdkImpl.getUserId())) {
 //			return;
 //		}
-		ApiClient.getInstance().roleLogin(data, null);
+		ApiClient.getInstance().roleLogin(activity,data, null);
 //		// 统一发送进入游戏
 //		new Thread(new Runnable() {
 //			public void run() {
@@ -301,10 +328,6 @@ public class CommonSDKCenter implements SdkApi, IRoleDataAnaly, ActivityCycle, I
 
 	@Override
 	public boolean hasExitView() {
-		if (!isInitOK) {
-			FLogger.e("初始化失败，hasExitView return false");
-			return false;
-		}
 		return sdkImpl.hasExitView();
 	}
 

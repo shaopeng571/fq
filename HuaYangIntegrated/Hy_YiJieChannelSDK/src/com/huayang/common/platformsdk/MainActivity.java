@@ -1,4 +1,4 @@
-package com.fqwl.hy_yijiechannelsdk;
+package com.huayang.common.platformsdk;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -15,6 +15,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -113,7 +114,7 @@ public class MainActivity extends Activity implements OnClickListener {
 					
 					
 					if (TextUtils.isEmpty(uid)) {
-						uid = HySDKManager.getInstance().getCurrentUserId(MainActivity.this);
+						uid = HySDKManager.getInstance().getCurrentUserId();
 						if (TextUtils.isEmpty(uid)) {
 							// 重新显示登录页面
 							HySDKManager.getInstance().showLoginView(MainActivity.this, null);
@@ -167,7 +168,7 @@ public class MainActivity extends Activity implements OnClickListener {
 			// TODO Auto-generated method stub
 			if (arg1 == 0) {// 用户推出游戏
 				// 这里结束游戏
-				MainActivity.this.finish();
+//				MainActivity.this.finish();
 			} else {
 				// 用户继续游戏
 			}
@@ -371,7 +372,6 @@ public class MainActivity extends Activity implements OnClickListener {
 			data4.setParty_name("帮派");
 			data4.setServerName("服务器名字");
 			data4.setUser_id(uid);
-			HySDKManager.getInstance().getPlatformChanleId(MainActivity.this);
 			HySDKManager.getInstance().sendExtendDataRoleLogout(MainActivity.this, data4);
 			break;
 		default:
@@ -379,5 +379,34 @@ public class MainActivity extends Activity implements OnClickListener {
 			
 		}
 	}
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
 
+		return super.onKeyDown(keyCode, event);
+	}
+
+	private void exit() {
+		// TODO Auto-generated method stub
+		this.finish();
+		System.exit(0);
+		runOnUiThread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				HySDKManager.getInstance().showExitView(MainActivity.this);
+			}
+		});
+	}
+	
+	@Override
+		public boolean dispatchKeyEvent(KeyEvent event) {
+			// TODO Auto-generated method stub
+		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+			HySDKManager.getInstance().showExitView(this);
+			return true;
+		}
+			return super.dispatchKeyEvent(event);
+		}
 }

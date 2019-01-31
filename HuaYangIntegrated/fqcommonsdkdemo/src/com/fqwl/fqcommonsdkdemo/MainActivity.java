@@ -1,5 +1,6 @@
 package com.fqwl.fqcommonsdkdemo;
 
+import org.cocos2dx.lib.Cocos2dxActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,7 +23,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends Cocos2dxActivity implements OnClickListener {
  private String uid;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +114,7 @@ private CommonSdkCallBack sdkcallback=new CommonSdkCallBack() {
 					
 					
 					if (TextUtils.isEmpty(uid)) {
-						uid = HySDKManager.getInstance().getCurrentUserId(MainActivity.this);
+						uid = HySDKManager.getInstance().getCurrentUserId();
 						if (TextUtils.isEmpty(uid)) {
 							// 重新显示登录页面
 							HySDKManager.getInstance().showLoginView(MainActivity.this, null);

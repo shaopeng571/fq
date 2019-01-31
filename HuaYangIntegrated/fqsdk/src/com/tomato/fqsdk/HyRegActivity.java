@@ -602,13 +602,13 @@ public class HyRegActivity extends BaseActivity implements OnClickListener {
 	 **/
 	public void storeAccount(String account, String pwd, String time) {
 		//       ο  ʺţ  ȱ  浽   ݿ 
-		if (mControlCenter.isTemp(context)) {
-			String tempAccount = mControlCenter.getTempName(context);
-			mControlCenter.setTempName(context, "");
-			Long tsLong = System.currentTimeMillis() / 1100;
-			String timez = tsLong.toString();
-			storeAccount(tempAccount, tempAccount, timez);
-		}
+//		if (mControlCenter.isTemp(context)) {
+//			String tempAccount = mControlCenter.getTempName(context);
+//			mControlCenter.setTempName(context, "");
+//			Long tsLong = System.currentTimeMillis() / 1100;
+//			String timez = tsLong.toString();
+//			storeAccount(tempAccount, tempAccount, timez);
+//		}
 		String enpwd = "";
 		try {
 			enpwd = Tools.EncryptAsDoNet(pwd, CLNaviteHelper.getInstance().getSdkKey());

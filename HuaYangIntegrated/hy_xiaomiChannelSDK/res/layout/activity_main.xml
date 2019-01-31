@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.hywl.hy_xiaomichannelsdk.MainActivity" >
+    tools:context="com.huayang.common.platformsdk.MainActivity" >
 
     <TextView
         android:layout_width="wrap_content"

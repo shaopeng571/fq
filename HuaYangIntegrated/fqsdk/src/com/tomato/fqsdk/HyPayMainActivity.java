@@ -7,6 +7,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
@@ -17,6 +20,7 @@ import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -68,7 +72,8 @@ public class HyPayMainActivity extends BaseActivity
 	private WebView webView;
 	private int paytype = 0;
 	// private TelephonyManager telephonyManager;
-	private PopupWindow popupWindow;
+//	private PopupWindow popupWindow;
+	
 	private View view;
 	private CLControlCenter mControlCenter;
 	private PayAdapter adapter;
@@ -87,7 +92,6 @@ public class HyPayMainActivity extends BaseActivity
 		super.onCreate(savedInstanceState);
 		setContentView(FindResHelper.RLayout("hj_pay_main"));
 		mControlCenter = CLControlCenter.getInstance();
-		
 //		mHjPayResult = CLPayResult.getInstance();
 		context = this;
 		// 获取支付参数
@@ -139,7 +143,7 @@ public class HyPayMainActivity extends BaseActivity
 	// return str;
 	//
 	// }
-	@Override
+
 	public void initView() {
 		// telephonyManager = (TelephonyManager) this
 		// .getSystemService(Context.TELEPHONY_SERVICE);
@@ -161,7 +165,7 @@ public class HyPayMainActivity extends BaseActivity
 
 		LayoutInflater inflater = getLayoutInflater();
 		view = inflater.inflate(FindResHelper.RLayout("hj_pay_isback"), null);
-		popupWindow = new PopupWindow(view, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+//		popupWindow = new PopupWindow(view, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 	}
 
 	@Override
@@ -327,21 +331,52 @@ public class HyPayMainActivity extends BaseActivity
 
 	// 设置和显示返回窗 ???
 	private void showPopupWindow() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(HyPayMainActivity.this,FindResHelper.RStyle("fq_Dialog"));
+//		builder.setTitle("设置标题");
+	
+		View view = View
+		    .inflate(HyPayMainActivity.this, FindResHelper.RLayout("hj_pay_isback"), null);
+//		builder.setView(view);
+		builder.setCancelable(true);
+		final AlertDialog dialog = builder.create();
+		dialog.setView(view, 0, 0, 0, 0);
+		dialog.show();
 		TextView tv_back = (TextView) view.findViewById(FindResHelper.RId("tv_back"));
 		ImageView iv_close = (ImageView) view.findViewById(FindResHelper.RId("img_btn_close"));
+//
+//		builder.setPositiveButton(android.R.string.ok,
+//		    new DialogInterface.OnClickListener() {
+//		      @Override
+//		      public void onClick(DialogInterface dialog, int which) {
+//		        //点击确定按钮处理
+//		          dialog.cancel();
+//		        }
+//		      }
+//		    });
+//		builder.setNegativeButton(android.R.string.cancel,
+//		    new DialogInterface.OnClickListener() {
+//		      @Override
+//		      public void onClick(DialogInterface dialog, int which) {
+//		      //点击取消按钮处理
+//		        dialog.cancel();
+//		      }
+//		    });
+		
+//		setCustomDialogStyle(dialog);//这里不要忘记调用setCustomDialogStyle方法
+//		TextView tv_back = (TextView) view.findViewById(FindResHelper.RId("tv_back"));
+//		ImageView iv_close = (ImageView) view.findViewById(FindResHelper.RId("img_btn_close"));
 		iv_close.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				popupWindow.dismiss();
+				 dialog.cancel();
 			}
 		});
 		tv_back.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				popupWindow.dismiss();
-				// ShowToast(FindResHelper.RStringStr("hj_toast_paypaysuccess"));
+				 dialog.cancel();
 				HyPayMainActivity.this.finish();
 			}
 		});
@@ -350,32 +385,32 @@ public class HyPayMainActivity extends BaseActivity
 
 			@Override
 			public void onClick(View v) {
-				popupWindow.dismiss();
+				 dialog.cancel();
 			}
 		});
-		popupWindow.setFocusable(true);
-		// popupWindow.setOutsideTouchable(true);
-		// popupWindow.setBackgroundDrawable(getResources().getDrawable(
-		// FtnnRes.RDrawable("hj_pay_backshape")));
-		WindowManager.LayoutParams lp = getWindow().getAttributes();
-		lp.alpha = 0.3f;
-		getWindow().setAttributes(lp);
-		popupWindow.setOnDismissListener(new OnDismissListener() {
-
-			@Override
-			public void onDismiss() {
-				WindowManager.LayoutParams lp = getWindow().getAttributes();
-				lp.alpha = 1f;
-				getWindow().setAttributes(lp);
-			}
-		});
-		popupWindow.setAnimationStyle(android.R.style.Animation_Translucent);
-
-		// 显示PopupWindow ???3个方 ???
-		// popupWindow.showAsDropDown(view);
-		// popupWindow.showAsDropDown(anchor, xoff, yoff)
-		popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-		//  ???要注意的是以上三个方法必须在触发事件中使用，比如在点击某个按钮的时 ??
+//		popupWindow.setFocusable(true);
+//		// popupWindow.setOutsideTouchable(true);
+//		// popupWindow.setBackgroundDrawable(getResources().getDrawable(
+//		// FtnnRes.RDrawable("hj_pay_backshape")));
+//		WindowManager.LayoutParams lp = getWindow().getAttributes();
+//		lp.alpha = 0.3f;
+//		getWindow().setAttributes(lp);
+//		popupWindow.setOnDismissListener(new OnDismissListener() {
+//
+//			@Override
+//			public void onDismiss() {
+//				WindowManager.LayoutParams lp = getWindow().getAttributes();
+//				lp.alpha = 1f;
+//				getWindow().setAttributes(lp);
+//			}
+//		});
+//		popupWindow.setAnimationStyle(android.R.style.Animation_Translucent);
+//
+//		// 显示PopupWindow ???3个方 ???
+//		// popupWindow.showAsDropDown(view);
+//		// popupWindow.showAsDropDown(anchor, xoff, yoff)
+//		popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+//		//  ???要注意的是以上三个方法必须在触发事件中使用，比如在点击某个按钮的时 ??
 
 	}
 
@@ -544,7 +579,7 @@ public class HyPayMainActivity extends BaseActivity
 		                    startActivity(intent);
 		            
 					} catch (Exception e) {
-						Toast.makeText(context, "请安装支付软件后重试", Toast.LENGTH_SHORT).show();
+						Toast.makeText(HyPayMainActivity.this, "请安装支付插件后重试", Toast.LENGTH_SHORT).show();
 					}
 					 finish(); 
 	                    return true;
@@ -620,9 +655,9 @@ public class HyPayMainActivity extends BaseActivity
 
 	@Override
 	public void onBackPressed() {
-		if (!this.popupWindow.isShowing()) {
+//		if (!this.popupWindow.isShowing()) {
 			showPopupWindow();
-		}
+//		}
 	}
 
 

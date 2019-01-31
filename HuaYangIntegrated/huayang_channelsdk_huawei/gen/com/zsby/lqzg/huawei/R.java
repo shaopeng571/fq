@@ -11,14 +11,14 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
-        public static int upsdk_black=0x7f060000;
-        public static int upsdk_blue_text_007dff=0x7f060001;
-        public static int upsdk_category_button_select_pressed=0x7f060002;
-        public static int upsdk_white=0x7f060003;
+        public static int upsdk_black=0x7f050000;
+        public static int upsdk_blue_text_007dff=0x7f050001;
+        public static int upsdk_category_button_select_pressed=0x7f050002;
+        public static int upsdk_white=0x7f050003;
     }
     public static final class dimen {
-        public static int upsdk_dialog_content_size=0x7f070000;
-        public static int upsdk_dialog_subtitle_size=0x7f070001;
+        public static int upsdk_dialog_content_size=0x7f060000;
+        public static int upsdk_dialog_subtitle_size=0x7f060001;
     }
     public static final class drawable {
         public static int hms_game_buoy_hide_shape=0x7f020000;
@@ -101,94 +101,70 @@ public final class R {
     }
     public static final class string {
         public static int HUAWEI_BUOY_PRIVATEKEY=0x7f04003c;
-        public static int app_name=0x7f040000;
-        public static int connect_server_fail_prompt_toast=0x7f040001;
-        public static int getting_message_fail_prompt_toast=0x7f040002;
+        public static int app_name=0x7f040037;
+        public static int connect_server_fail_prompt_toast=0x7f040000;
+        public static int getting_message_fail_prompt_toast=0x7f040001;
         public static int hello_world=0x7f040038;
-        public static int hms_abort=0x7f040003;
-        public static int hms_abort_message=0x7f040004;
-        public static int hms_bindfaildlg_message=0x7f040005;
-        public static int hms_bindfaildlg_title=0x7f040037;
-        public static int hms_cancel=0x7f040006;
-        public static int hms_check_failure=0x7f040007;
-        public static int hms_check_no_update=0x7f040008;
-        public static int hms_checking=0x7f040009;
-        public static int hms_confirm=0x7f04000a;
-        public static int hms_download_failure=0x7f04000b;
-        public static int hms_download_no_space=0x7f04000c;
-        public static int hms_download_retry=0x7f04000d;
-        public static int hms_downloading=0x7f04000e;
-        public static int hms_downloading_loading=0x7f04000f;
-        public static int hms_downloading_new=0x7f040010;
-        public static int hms_game_auto_hide_notice=0x7f04002e;
-        public static int hms_game_floatwindow_click_fail_toast=0x7f04002f;
-        public static int hms_game_hide_guide_btn_cancel=0x7f040030;
-        public static int hms_game_hide_guide_btn_confirm=0x7f040031;
-        public static int hms_game_hide_guide_content_nosensor=0x7f040032;
-        public static int hms_game_hide_guide_content_sensor=0x7f040033;
-        public static int hms_game_hide_guide_noremind=0x7f040034;
-        public static int hms_game_hide_guide_title=0x7f040035;
-        public static int hms_game_login_notice=0x7f040036;
-        public static int hms_gamebox_name=0x7f040011;
-        public static int hms_install=0x7f040012;
-        public static int hms_install_message=0x7f040013;
-        public static int hms_push_channel=0x7f04002d;
-        public static int hms_retry=0x7f040014;
-        public static int hms_update=0x7f040015;
-        public static int hms_update_message=0x7f040016;
-        public static int hms_update_message_new=0x7f040017;
-        public static int hms_update_title=0x7f040018;
+        public static int hms_abort=0x7f040002;
+        public static int hms_abort_message=0x7f040003;
+        public static int hms_bindfaildlg_message=0x7f040004;
+        public static int hms_bindfaildlg_title=0x7f040036;
+        public static int hms_cancel=0x7f040005;
+        public static int hms_check_failure=0x7f040006;
+        public static int hms_check_no_update=0x7f040007;
+        public static int hms_checking=0x7f040008;
+        public static int hms_confirm=0x7f040009;
+        public static int hms_download_failure=0x7f04000a;
+        public static int hms_download_no_space=0x7f04000b;
+        public static int hms_download_retry=0x7f04000c;
+        public static int hms_downloading=0x7f04000d;
+        public static int hms_downloading_loading=0x7f04000e;
+        public static int hms_downloading_new=0x7f04000f;
+        public static int hms_game_auto_hide_notice=0x7f04002d;
+        public static int hms_game_floatwindow_click_fail_toast=0x7f04002e;
+        public static int hms_game_hide_guide_btn_cancel=0x7f04002f;
+        public static int hms_game_hide_guide_btn_confirm=0x7f040030;
+        public static int hms_game_hide_guide_content_nosensor=0x7f040031;
+        public static int hms_game_hide_guide_content_sensor=0x7f040032;
+        public static int hms_game_hide_guide_noremind=0x7f040033;
+        public static int hms_game_hide_guide_title=0x7f040034;
+        public static int hms_game_login_notice=0x7f040035;
+        public static int hms_gamebox_name=0x7f040010;
+        public static int hms_install=0x7f040011;
+        public static int hms_install_message=0x7f040012;
+        public static int hms_push_channel=0x7f04002c;
+        public static int hms_retry=0x7f040013;
+        public static int hms_update=0x7f040014;
+        public static int hms_update_message=0x7f040015;
+        public static int hms_update_message_new=0x7f040016;
+        public static int hms_update_title=0x7f040017;
         public static int huawei_appid=0x7f040039;
         public static int huawei_cpid=0x7f04003a;
         public static int huawei_rsa_private=0x7f04003b;
-        public static int no_available_network_prompt_toast=0x7f040019;
-        public static int third_app_dl_cancel_download_prompt_ex=0x7f04001a;
-        public static int third_app_dl_install_failed=0x7f04001b;
-        public static int third_app_dl_sure_cancel_download=0x7f04001c;
-        public static int upsdk_app_dl_installing=0x7f04001d;
-        public static int upsdk_app_download_info_new=0x7f04001e;
-        public static int upsdk_app_size=0x7f04001f;
-        public static int upsdk_app_version=0x7f040020;
-        public static int upsdk_cancel=0x7f040021;
-        public static int upsdk_checking_update_prompt=0x7f040022;
-        public static int upsdk_choice_update=0x7f040023;
-        public static int upsdk_detail=0x7f040024;
-        public static int upsdk_install=0x7f040025;
-        public static int upsdk_ota_app_name=0x7f040026;
-        public static int upsdk_ota_cancel=0x7f040027;
-        public static int upsdk_ota_force_cancel_new=0x7f040028;
-        public static int upsdk_ota_notify_updatebtn=0x7f040029;
-        public static int upsdk_ota_title=0x7f04002a;
-        public static int upsdk_update_check_no_new_version=0x7f04002b;
-        public static int upsdk_updating=0x7f04002c;
+        public static int no_available_network_prompt_toast=0x7f040018;
+        public static int third_app_dl_cancel_download_prompt_ex=0x7f040019;
+        public static int third_app_dl_install_failed=0x7f04001a;
+        public static int third_app_dl_sure_cancel_download=0x7f04001b;
+        public static int upsdk_app_dl_installing=0x7f04001c;
+        public static int upsdk_app_download_info_new=0x7f04001d;
+        public static int upsdk_app_size=0x7f04001e;
+        public static int upsdk_app_version=0x7f04001f;
+        public static int upsdk_cancel=0x7f040020;
+        public static int upsdk_checking_update_prompt=0x7f040021;
+        public static int upsdk_choice_update=0x7f040022;
+        public static int upsdk_detail=0x7f040023;
+        public static int upsdk_install=0x7f040024;
+        public static int upsdk_ota_app_name=0x7f040025;
+        public static int upsdk_ota_cancel=0x7f040026;
+        public static int upsdk_ota_force_cancel_new=0x7f040027;
+        public static int upsdk_ota_notify_updatebtn=0x7f040028;
+        public static int upsdk_ota_title=0x7f040029;
+        public static int upsdk_update_check_no_new_version=0x7f04002a;
+        public static int upsdk_updating=0x7f04002b;
     }
     public static final class style {
-        /** 
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-        
-
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
- API 11 theme customizations can go here. 
-
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
-    
- API 14 theme customizations can go here. 
-         */
-        public static int AppBaseTheme=0x7f050000;
-        /**  Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
-         */
-        public static int AppTheme=0x7f050001;
-        public static int upsdkDlDialog=0x7f050002;
+        public static int AppBaseTheme=0x7f070001;
+        public static int AppTheme=0x7f070002;
+        public static int upsdkDlDialog=0x7f070000;
     }
 }

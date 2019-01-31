@@ -1,4 +1,4 @@
-package com.fqwl.hy_yijiechannelsdk.present;
+package com.huayang.common.platformsdk.present;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,6 +11,7 @@ import com.fqwl.hycommonsdk.model.CommonSdkExtendData;
 import com.fqwl.hycommonsdk.model.CommonSdkInitInfo;
 import com.fqwl.hycommonsdk.model.CommonSdkLoginInfo;
 import com.fqwl.hycommonsdk.present.apiinteface.ImplCallback;
+import com.fqwl.hycommonsdk.util.logutils.FLogger;
 import com.snowfish.cn.ganga.helper.SFOnlineExitListener;
 import com.snowfish.cn.ganga.helper.SFOnlineHelper;
 import com.snowfish.cn.ganga.helper.SFOnlineInitListener;
@@ -19,17 +20,21 @@ import com.snowfish.cn.ganga.helper.SFOnlinePayResultListener;
 import com.snowfish.cn.ganga.helper.SFOnlineUser;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.util.Log;
 
-public class SdkApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, com.fqwl.hycommonsdk.present.apiinteface.ActivityCycle,
+public class platformApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, com.fqwl.hycommonsdk.present.apiinteface.ActivityCycle,
 		com.fqwl.hycommonsdk.present.apiinteface.IRoleDataAnaly {
 	private CommonSdkCallBack callBack;
 	private ImplCallback implCallback;
-
+	private Activity mActivity;
 	@Override
 	public void init(final Activity activity, CommonSdkInitInfo info, final CommonSdkCallBack callBack,
 			final ImplCallback implCallback) {
+		this.mActivity=activity;
 		this.callBack = callBack;
 		this.implCallback = implCallback;
 		// TODO Auto-generated method stub
@@ -55,7 +60,7 @@ public class SdkApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, 
 			@Override
 			public void onLogout(Object arg0) {
 				// TODO Auto-generated method stub
-				SdkApi.this.callBack.logoutOnFinish("退出账号成功", 0);
+				platformApi.this.callBack.logoutOnFinish("退出账号成功", 0);
 			}
 
 			@Override
@@ -113,7 +118,7 @@ public class SdkApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, 
 	@Override
 	public void charge(Activity activity, CommonSdkChargeInfo ChargeInfo) {
 		// TODO Auto-generated method stub
-		SFOnlineHelper.pay(activity, (int) (ChargeInfo.getMoney() * 100), ChargeInfo.getGoods_name(), 1,
+		SFOnlineHelper.pay(activity, (int)ChargeInfo.getMoney()*100, ChargeInfo.getGoods_name(), 1,
 				ChargeInfo.getOrder(), "", new SFOnlinePayResultListener() {
 
 					@Override
@@ -142,19 +147,22 @@ public class SdkApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, 
 		SFOnlineHelper.onDestroy(activity);
 
 	}
-
+	private AlertDialog exitDialog;
 	@Override
 	public boolean showExitView(final Activity activity) {
 		// TODO Auto-generated method stub
+		FLogger.d("来到了退出界面");
 		SFOnlineHelper.exit(activity, new SFOnlineExitListener() {
 
 			@Override
 			public void onSDKExit(boolean bool) {
 				// TODO Auto-generated method stub
 				if (bool) {
-
+					FLogger.d("onSDKExit");
 					// SDK已经退出，此处可以调用游戏的退出函数
 					callBack.exitViewOnFinish("退出成功", 0);
+					activity.finish();
+					android.os.Process.killProcess(android.os.Process.myPid());// 杀进程
 				} else {
 					callBack.exitViewOnFinish("退出失败", 2);
 				}
@@ -162,12 +170,43 @@ public class SdkApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, 
 
 			@Override
 			public void onNoExiterProvide() {
+				
 				// TODO Auto-generated method stub
 				// 账号退出
-				callBack.exitViewOnFinish("退出成功", 0);
-				activity.finish();// 销毁Activity
-				android.os.Process.killProcess(android.os.Process.myPid());// 杀进程
-				System.exit(0);// 退出
+//				callBack.exitViewOnFinish("退出成功", 0);
+				if (exitDialog != null) {
+					FLogger.d("fq", "已弹出");
+					return;
+				}
+				FLogger.d("onNoExiterProvide");
+				// cp自己实现退出界面
+				AlertDialog.Builder builder;
+				if (Build.VERSION.SDK_INT >= 21) {
+					builder = new AlertDialog.Builder(activity, android.R.style.Theme_Material_Light_Dialog_Alert);
+				} else {
+					builder = new AlertDialog.Builder(activity, AlertDialog.THEME_HOLO_LIGHT);
+				}
+				builder.setMessage("确定退出游戏?");
+				builder.setCancelable(true);
+				builder.setPositiveButton("继续游戏", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						FLogger.i("fq", "点击了继续游戏");
+						exitDialog = null;
+					}
+				});
+				builder.setNeutralButton("退出游戏", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						FLogger.i("fq", "点击了退出游戏");
+						exitDialog = null;
+						logout();
+						activity.finish();// 销毁Activity
+						android.os.Process.killProcess(android.os.Process.myPid());// 杀进程
+						System.exit(0);// 退出
+					}
+				});
+				exitDialog = builder.create();
+				exitDialog.show();
+				
 			}
 		});
 		return true;
@@ -234,6 +273,7 @@ public class SdkApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, 
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Log.e("fqcommonsdk", roleInfo.toString());
 		SFOnlineHelper.setRoleData(activity, data.getRoleId(), data.getRoleName(), data.getRoleLevel(),
 				data.getServerId(), data.getServerName());
 		SFOnlineHelper.setData(activity, "enterServer", roleInfo.toString());
@@ -259,6 +299,7 @@ public class SdkApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, 
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Log.e("fqcommonsdk", roleInfo.toString());
 		SFOnlineHelper.setData(activity, "createrole", roleInfo.toString());
 	}
 
@@ -266,7 +307,7 @@ public class SdkApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, 
 	public void roleLevelUpdate(Activity activity, CommonSdkExtendData data) {
 		// TODO Auto-generated method stub
 		JSONObject roleInfo = new JSONObject();
-
+		
 		try {
 			roleInfo.put("roleId", data.getRoleId());// 当前登录的玩家角色ID，必须为数字
 			roleInfo.put("roleName", data.getRoleName());// 当前登录的玩家角色名，不能为空，不能为null
@@ -282,6 +323,7 @@ public class SdkApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, 
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Log.e("fqcommonsdk", roleInfo.toString());
 		SFOnlineHelper.setData(activity, "levelup", roleInfo.toString());
 	}
 
@@ -337,6 +379,12 @@ public class SdkApi implements com.fqwl.hycommonsdk.present.apiinteface.SdkApi, 
 	public String getChannelName() {
 		// TODO Auto-generated method stub
 		return "易接sdk";
+	}
+
+	@Override
+	public void logout() {
+		// TODO Auto-generated method stub
+		logout(mActivity);
 	}
 
 }

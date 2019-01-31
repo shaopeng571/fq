@@ -14,14 +14,17 @@ import com.fqwl.hycommonsdk.bean.ResultInfo;
 import com.fqwl.hycommonsdk.model.CommonBackLoginInfo;
 import com.fqwl.hycommonsdk.model.CommonSdkChargeInfo;
 import com.fqwl.hycommonsdk.model.CommonSdkExtendData;
+import com.fqwl.hycommonsdk.model.CommonSdkInitInfo;
 import com.fqwl.hycommonsdk.present.HySDKManager;
 import com.fqwl.hycommonsdk.model.CommonSDKHttpCallback;
+import com.fqwl.hycommonsdk.model.CommonSDKMustPutData;
+import com.fqwl.hycommonsdk.model.CommonSdkBaseInfo;
 import com.fqwl.hycommonsdk.util.ChannelConfigUtil;
+import com.fqwl.hycommonsdk.util.CommonUtils;
 import com.fqwl.hycommonsdk.util.CryptHelper;
+import com.fqwl.hycommonsdk.util.NetWorkUtil;
 import com.fqwl.hycommonsdk.util.logutils.FLogger;
-import com.tomato.fqsdk.control.HySDK;
-import com.tomato.fqsdk.models.BaseInfo;
-import com.tomato.fqsdk.models.HyRoleData;
+
 
 import android.content.Context;
 import android.os.Handler;
@@ -62,7 +65,7 @@ public class ApiClient {
 
 		// http://api-sdk.huayang.fun/v1/channel/makeOrder
 //	CLPayResult payInfo = CLPayResult.getInstance();
-		BaseInfo baseInfo = new BaseInfo(context);
+		CommonSdkBaseInfo baseInfo = new CommonSdkBaseInfo(context);
 		try {
 			TreeMap<String, String> dict = new TreeMap<String, String>();
 			String money = hyPayInfo.getMoney() * 100 + "";
@@ -147,91 +150,94 @@ public class ApiClient {
 //		return HttpsRequest.postData(url, headerMaps, dataMap);
 //		HttpRequest.post("http://api-sdk.huayang.fun/v1/channel/pay_notify/game_code/cytl/channel_code/2001105", params);
 		}
-	public void roleLogin(CommonSdkExtendData data, HashMap<String, String> dataMap) {
-		HyRoleData role_data = new HyRoleData();
-		role_data.setRoleId(data.getRoleId());// 角色id
-		role_data.setRoleName(data.getRoleName());// 角色名
-		role_data.setRoleLevel(data.getRoleLevel());// 角色等级
-		role_data.setServerId(data.getServerId());// 所在服id
-		role_data.setServerName(data.getServerName());
-		role_data.setUserMoney(data.getUserMoney());
-		role_data.setVipLevel(data.getVipLevel());
-		role_data.setUser_id(CommonBackLoginInfo.getInstance().userId);
-		role_data.setParty_name(data.getParty_name());
-		role_data.setRoleCTime(data.getRoleCTime());
-		HySDK.getInstance().HySubmitRoleData(role_data);
+	public void roleLogin(Context context,CommonSdkExtendData data, HashMap<String, String> dataMap) {
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sid", data.getServerId());
+		map.put("role_id", data.getRoleId());
+		map.put("user_id", data.getUser_id());
+		map.put("role_name", data.getRoleName());
+		map.put("level", data.getRoleLevel());
+		map.put("server_name", data.getServerName());
+		map.put("party_name", data.getParty_name());
+		map.put("balance", data.getUserMoney());
+		map.put("vip_level", data.getVipLevel());
+		map.put("role_create_time", data.getRoleCTime());
+		submitRoleData(context,"login", map);
 	}
 
-	public void roleCreate(CommonSdkExtendData data, HashMap<String, String> dataMap) {
+	public void roleCreate(Context context,CommonSdkExtendData data, HashMap<String, String> dataMap) {
 		if (TextUtils.isEmpty(CommonBackLoginInfo.getInstance().userId)) {
 			return;
 		}
-		HyRoleData role_data = new HyRoleData();
-		role_data.setRoleId(data.getRoleId());// 角色id
-		role_data.setRoleName(data.getRoleName());// 角色名
-		role_data.setRoleLevel(data.getRoleLevel());// 角色等级
-		role_data.setServerId(data.getServerId());// 所在服id
-		role_data.setServerName(data.getServerName());
-		role_data.setUserMoney(data.getUserMoney());
-		role_data.setVipLevel(data.getVipLevel());
-		role_data.setUser_id(CommonBackLoginInfo.getInstance().userId);
-		role_data.setParty_name(data.getParty_name());
-		role_data.setRoleCTime(data.getRoleCTime());
-		HySDK.getInstance().HySubmitDataRoleCreate(role_data);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sid", data.getServerId());
+		map.put("role_id", data.getRoleId());
+		map.put("user_id", data.getUser_id());
+		map.put("role_name", data.getRoleName());
+		map.put("server_name", data.getServerName());
+		map.put("party_name", data.getParty_name());
+		map.put("balance", data.getUserMoney());
+		map.put("vip_level", data.getVipLevel());
+		map.put("role_create_time", data.getRoleCTime());
+		submitRoleData(context,"register", map);
 	}
 
-	public void roleLevelUpdate(CommonSdkExtendData data, HashMap<String, String> dataMap) {
+	public void roleLevelUpdate(Context context,CommonSdkExtendData data, HashMap<String, String> dataMap) {
 		if (TextUtils.isEmpty(CommonBackLoginInfo.getInstance().userId)) {
 			return;
 		}
-		HyRoleData role_data = new HyRoleData();
-		role_data.setRoleId(data.getRoleId());// 角色id
-		role_data.setRoleName(data.getRoleName());// 角色名
-		role_data.setRoleLevel(data.getRoleLevel());// 角色等级
-		role_data.setServerId(data.getServerId());// 所在服id
-		role_data.setServerName(data.getServerName());
-		role_data.setUserMoney(data.getUserMoney());
-		role_data.setVipLevel(data.getVipLevel());
-		role_data.setUser_id(CommonBackLoginInfo.getInstance().userId);
-		role_data.setParty_name(data.getParty_name());
-		role_data.setRoleCTime(data.getRoleCTime());
-		HySDK.getInstance().HySubmitDataRoleLevelUpdate(role_data);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sid", data.getServerId());
+		map.put("role_id", data.getRoleId());
+		map.put("user_id", data.getUser_id());
+		map.put("role_name", data.getRoleName());
+		map.put("level", data.getRoleLevel());
+		map.put("level_begin", data.getRoleLevel_begin());
+		map.put("server_name", data.getServerName());
+		map.put("party_name", data.getParty_name());
+		map.put("balance", data.getUserMoney());
+		map.put("vip_level", data.getVipLevel());
+		map.put("role_create_time", data.getRoleCTime());
+		submitRoleData(context,"level_up", map);
 	}
 
-	public void rolelogOut(CommonSdkExtendData data, HashMap<String, String> dataMap) {
+	public void rolelogOut(Context context,CommonSdkExtendData data, HashMap<String, String> dataMap) {
 		if (TextUtils.isEmpty(CommonBackLoginInfo.getInstance().userId)) {
 			return;
 		}
-		HyRoleData role_data = new HyRoleData();
-		role_data.setRoleId(data.getRoleId());// 角色id
-		role_data.setRoleName(data.getRoleName());// 角色名
-		role_data.setRoleLevel(data.getRoleLevel());// 角色等级
-		role_data.setServerId(data.getServerId());// 所在服id
-		role_data.setServerName(data.getServerName());
-		role_data.setUserMoney(data.getUserMoney());
-		role_data.setVipLevel(data.getVipLevel());
-		role_data.setUser_id(CommonBackLoginInfo.getInstance().userId);
-		role_data.setParty_name(data.getParty_name());
-		role_data.setRoleCTime(data.getRoleCTime());
-		HySDK.getInstance().HySubmitDataLogout(role_data);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("sid", data.getServerId());
+		map.put("role_id", data.getRoleId());
+		map.put("user_id", data.getUser_id());
+		map.put("role_name", data.getRoleName());
+		map.put("level", data.getRoleLevel());
+		map.put("server_name", data.getServerName());
+		map.put("party_name", data.getParty_name());
+		map.put("balance", data.getUserMoney());
+		map.put("vip_level", data.getVipLevel());
+		map.put("role_create_time", data.getRoleCTime());
+		submitRoleData(context,"login_out", map);
 	}
 
-	public void roleOther(CommonSdkExtendData data, String behavior, Map<String, Object> dataMap) {
+	public void roleOther(Context context,CommonSdkExtendData data, String behavior, Map<String, Object> dataMap) {
 		if (TextUtils.isEmpty(CommonBackLoginInfo.getInstance().userId)) {
 			return;
 		}
-		HyRoleData role_data = new HyRoleData();
-		role_data.setRoleId(data.getRoleId());// 角色id
-		role_data.setRoleName(data.getRoleName());// 角色名
-		role_data.setRoleLevel(data.getRoleLevel());// 角色等级
-		role_data.setServerId(data.getServerId());// 所在服id
-		role_data.setServerName(data.getServerName());
-		role_data.setUserMoney(data.getUserMoney());
-		role_data.setVipLevel(data.getVipLevel());
-		role_data.setUser_id(CommonBackLoginInfo.getInstance().userId);
-		role_data.setParty_name(data.getParty_name());
-		role_data.setRoleCTime(data.getRoleCTime());
-		HySDK.getInstance().HySubmitDataOther(role_data, behavior, dataMap);
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.putAll(dataMap);
+		map.put("sid", data.getServerId());
+		map.put("role_id", data.getRoleId());
+		map.put("user_id", data.getUser_id());
+		map.put("role_name", data.getRoleName());
+		map.put("level", data.getRoleLevel());
+		map.put("server_name", data.getServerName());
+		map.put("party_name", data.getParty_name());
+		map.put("balance", data.getUserMoney());
+		map.put("vip_level", data.getVipLevel());
+		map.put("role_create_time", data.getRoleCTime());
+		submitRoleData(context,behavior, map);
 	}
 
 	public void roleMSG(CommonSdkExtendData data, String appid, String openid) {
@@ -323,7 +329,7 @@ public class ApiClient {
 		return object;
 		
 	}
-	public static TreeMap<String, String> GetEquipmentParams(Context context, BaseInfo bi) {
+	public static TreeMap<String, String> GetEquipmentParams(Context context, CommonSdkBaseInfo bi) {
 
 		TreeMap<String, String> dict = new TreeMap<String, String>();
 
@@ -351,5 +357,73 @@ public class ApiClient {
 			params.put(entry.getKey() + "", entry.getValue() + "");
 		}
 		return params;
+	}
+	//数据模块
+	public static void submitRoleData(Context context,final String behavior, Map<String, Object> map) {
+		final JSONObject jsonObject2 = new JSONObject();
+		FLogger.d("准备提交："+behavior);
+		try {
+			jsonObject2.put("behavior", behavior);
+
+			TreeMap<String, Object> dict = GetMD5Params(context,behavior);
+			dict.putAll(map);
+			JSONObject jsonObject = GetDataParams(dict);
+			jsonObject2.put("data", jsonObject.toString());
+			String sgin = CryptHelper.GetMD5Code2(dict,
+					ChannelConfigUtil.getGameKey(context));
+			jsonObject2.put("sign", sgin);
+			jsonObject2.put("appid", (ChannelConfigUtil.getGameId(context)));
+			HyApi httpUtils = new HyApi();
+			CommonSDKHttpCallback callback = new CommonSDKHttpCallback() {
+
+
+				@Override
+				public void onResult(ResultInfo resultInfo, String msg) {
+					
+					 FLogger.d("---"+behavior+" submit --- code:"+resultInfo.code);
+				}
+			};
+				httpUtils.CLDataPost(behavior, jsonObject2.toString(), callback);
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private static JSONObject GetDataParams(TreeMap<String, Object> dict)
+			throws JSONException {
+		JSONObject params = new JSONObject();
+		Set<Entry<String, Object>> set = dict.entrySet();
+		Iterator<Entry<String, Object>> iterator = set.iterator();
+		while (iterator.hasNext()) {
+			Entry<?, ?> entry = (Entry<?, ?>) iterator.next();
+			params.put(entry.getKey() + "", entry.getValue() + "");
+		}
+		return params;
+	}
+	private static TreeMap<String, Object> GetMD5Params(Context context,Object behavior) {
+		CommonSdkBaseInfo bi = new CommonSdkBaseInfo(context);
+
+		TreeMap<String, Object> dict = new TreeMap<String, Object>();
+
+		dict.put("package_id", bi.getPacketName());
+		dict.put("app_id", ChannelConfigUtil.getGameId(context));
+		dict.put("behavior", behavior);
+		dict.put("channel_source", ChannelConfigUtil.getChannelId(context));
+		dict.put("type","android");
+		dict.put("equipment_code", bi.getDeviceId());
+		dict.put("equipment_name", bi.getDevice());
+		dict.put("equipment_api", bi.getResolution());
+		dict.put("equipment_os", bi.getBrand());
+		dict.put("idfa", bi.getImei());
+		dict.put("network", bi.getNetType());
+		dict.put("network_isp", bi.getOperators());
+		dict.put("ip", bi.getIp());
+		dict.put("time", CommonUtils.GetTimeZ());
+		dict.put("version",CommonSDKMustPutData.getInstance().getGameVersion() );
+
+		
+		return dict;
 	}
 }

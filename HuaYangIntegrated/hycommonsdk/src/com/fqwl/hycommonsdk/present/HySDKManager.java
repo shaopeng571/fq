@@ -52,6 +52,7 @@ public class HySDKManager implements ISdkManager {
 		if (mActivity == null) {
 			this.mActivity = activity;
 		}
+		info.setDebug(true);
 		FLogger.init(info.isDebug(), "fq");
 		implsdkcenter.init(activity, info, callBack, null);
 	}
@@ -96,6 +97,7 @@ public class HySDKManager implements ISdkManager {
 	@Override
 	public boolean showExitView(Activity activity) {
 		// TODO Auto-generated method stub
+		FLogger.d("showExitView");
 		return implsdkcenter.showExitView(activity);
 	}
 

@@ -168,6 +168,7 @@ public class platformApi implements SdkApi, IRoleDataAnaly, IWelcome {
 
 			@Subscribe(event = SDKEventKey.ON_EXIT_SUCC)
 			private void onExit(String desc) {
+				
 				mBack.exitViewOnFinish("退出成功", 0);
 
 			}

@@ -8,7 +8,7 @@ public class CLCommon {
 //	public final static String MARK = Environment
 //			.getExternalStorageDirectory().getAbsolutePath()
 //			+ "/databases/hjoriginal.txt";
-	public final static String ISFIRSTGAME="ISFIRSTGAME";
+	public final static String isfirstgame="huayang_isfirst";
 	public final static String ORIGINALDATA="hjoriginaldata";
 	public final static String equipment="android";
 	public final static String ACCOUNT="hjaccount";

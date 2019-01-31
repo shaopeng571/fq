@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="19" />
     <!-- add by snowfish -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -29,14 +29,14 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.huayang.common.platformsdk.MainActivity"
             android:label="@string/app_name" >
 
         </activity>
 
         <!-- SplashActivity为闪屏Activity,继承com.snowfish.cn.ganga.helper.SFOnlineSplashActivity并将该Activity设置为程序启动时的Activity -->
         <activity
-            android:name="com.fqwl.hy_yijiechannelsdk.SplashActivity"
+            android:name="com.huayang.common.platformsdk.SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="sensorLandscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
@@ -93,7 +93,7 @@
         <meta-data
             android:name="HYGAME_APPKEY"
             android:value="FB5CCB43EB70A93795CBBD1F5FDB0FF1" />
-          <meta-data android:name="HyGame_MainActivityName" android:value="com.fqwl.hy_yijiechannelsdkeMainActivity" />
+          <meta-data android:name="HyGame_MainActivityName" android:value="com.huayang.common.platformsdk.MainActivity" />
     </application>
 
 </manifest>

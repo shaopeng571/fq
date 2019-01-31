@@ -22,30 +22,26 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <application
+        android:name="com.huayang.common.platformsdk.appApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.fqwl.hy_hygamechannelsdk.MainActivity"
+            android:name="com.huayang.common.platformsdk.MainActivity"
             android:label="@string/app_name" >
 
             <intent-filter>
-				
-				  <action android:name="com.fqwl.hy_hygamechannelsdk" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-			</intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.fqwl.hycommonsdk.SplashActivity"
             android:screenOrientation="portrait"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
                      >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-				<category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+           
         </activity>
          <activity
             android:name="com.tomato.fqsdk.HyLoginActivity"
@@ -103,6 +99,9 @@
         <meta-data 
   android:name="android.max_aspect"
   android:value="2.1" />
+         <meta-data
+            android:name="HyGame_MainActivityName"
+            android:value="com.hywl.huayang_channelsdk_yyb.QMainActivity" />
     </application>
 
 </manifest>

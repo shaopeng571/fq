@@ -33,7 +33,6 @@
         android:allowBackup="true"
         android:icon="@drawable/hj_pay_gamehp"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
         android:name="com.tomato.fqsdk.HyApplicaion"
         >
         <activity
@@ -48,41 +47,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.tomato.fqsdk.HyLoginActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/HJSDK.ActivityTheme"
-            android:windowSoftInputMode="adjustPan|stateHidden" >
-        </activity>
-        <activity
-            android:name="com.tomato.fqsdk.HyRegActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/HJSDK.ActivityTheme"
-             android:windowSoftInputMode="adjustPan|stateHidden" >
-        </activity>
-        <activity
-            android:name="com.tomato.fqsdk.HyAgreementActivity"
-            android:screenOrientation="portrait"
-           android:theme="@style/HJDialogThemeTransparent">
-        </activity>
-        <activity
-            android:name="com.tomato.fqsdk.HyFindPwdActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/HJSDK.ActivityTheme"
-             android:windowSoftInputMode="adjustPan|stateHidden" >
-        </activity>
+      
          <activity
             android:name="com.tomato.fqsdk.HyPayMainActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
         </activity>
-        <activity
-            android:name="com.tomato.fqsdk.HyBindPhoneActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/HJSDK.ActivityTheme"
-             android:windowSoftInputMode="adjustPan|stateHidden"  >
-        </activity>
+
         <!-- 支付宝 -->
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"

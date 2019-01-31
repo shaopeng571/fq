@@ -1,4 +1,4 @@
-package com.fqwl.hy_yijiechannelsdk;
+package com.huayang.common.platformsdk;
 
 import java.io.ByteArrayInputStream;
 import java.security.cert.CertificateException;

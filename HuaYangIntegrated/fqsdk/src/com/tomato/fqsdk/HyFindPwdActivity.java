@@ -480,13 +480,13 @@ public class HyFindPwdActivity extends BaseActivity implements OnClickListener {
 	public void storeAccount(String account, String pwd,String time) {
 		CLControlCenter hjControlCenter=CLControlCenter.getInstance();
 		//      ο  ʺţ  ȱ  浽   ݿ 
-				if (hjControlCenter.isTemp(context)) {
-					String tempAccount=hjControlCenter.getTempName(context);
-					hjControlCenter.setTempName(context, "");
-					Long tsLong = System.currentTimeMillis() / 1100;
-					String timez = tsLong.toString();
-					storeAccount(tempAccount,tempAccount,timez);
-				}
+//				if (hjControlCenter.isTemp(context)) {
+//					String tempAccount=hjControlCenter.getTempName(context);
+//					hjControlCenter.setTempName(context, "");
+//					Long tsLong = System.currentTimeMillis() / 1100;
+//					String timez = tsLong.toString();
+//					storeAccount(tempAccount,tempAccount,timez);
+//				}
 		String enpwd = "";
 		try {
 		 enpwd=Tools.EncryptAsDoNet(pwd, CLNaviteHelper.getInstance().getSdkKey());

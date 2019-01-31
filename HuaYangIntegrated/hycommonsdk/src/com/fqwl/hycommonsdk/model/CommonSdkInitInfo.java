@@ -7,11 +7,15 @@ import com.fqwl.hycommonsdk.util.ChannelConfigUtil;
 import android.content.Context;
 
 public class CommonSdkInitInfo implements Serializable {
-//	private boolean isLandScape;
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 878L;
+	//	private boolean isLandScape;
 //	private String gameId;
 	private boolean debug=false;
 	private String gameVersion;
-
+	
 //appversion, String GameName, String GameIcon
 	public String getGameId(Context context) {
 		return ChannelConfigUtil.getGameId(context);

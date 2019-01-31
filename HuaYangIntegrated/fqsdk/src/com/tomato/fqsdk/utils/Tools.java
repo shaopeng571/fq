@@ -35,6 +35,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
+import com.tomato.fqsdk.control.HySDK;
 import com.tomato.fqsdk.fqutils.FLogger;
 
 import android.content.ClipboardManager;
@@ -47,6 +48,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.Settings.Secure;
 import android.telephony.TelephonyManager;
 import android.util.Base64;
@@ -158,6 +160,14 @@ public class Tools {
 		}
 		return mac_s;
 	}
+	public static String getMacAddress(Context context) {
+		String macAddress = getLocalMacAddressFromWifiInfo(context);
+		if (macAddress != null) {
+			return macAddress;
+		}
+		
+		return getLocalMacAddressFromIp(context);
+	}
 
 	public static String getLocalMacAddressFromWifiInfo(Context context) {
 		WifiManager wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
@@ -169,14 +179,6 @@ public class Tools {
 		return macAdress;
 	}
 
-	public static String getMacAddress(Context context) {
-		String macAddress = getLocalMacAddressFromWifiInfo(context);
-		if (macAddress != null) {
-			return macAddress;
-		}
-
-		return getLocalMacAddressFromIp(context);
-	}
 
 	public static String GetTimeZ(Date date) {
 		if (date == null)
@@ -293,14 +295,20 @@ public class Tools {
 	 */
 	public static void saveSharedPreference(Context context, String key, String value) {
 		// ȡSharedPreferences
-		SharedPreferences sharedPre = context.getSharedPreferences("config", Context.MODE_PRIVATE);
+//		SharedPreferences sharedPre = HySDK.getAppContext().getSharedPreferences("config", Context.MODE_PRIVATE);
 		// ȡEditor
-		Editor editor = sharedPre.edit();
+		Editor editor = settings.edit();
 		// ò
 		editor.putString(key, value);
 		// ύ
 		editor.commit();
 	}
+	 private static SharedPreferences settings = PreferenceManager  
+	            .getDefaultSharedPreferences(HySDK.getAppContext());
+	 
+//	public static String getSharedPreference(Context context, String key) {
+//		return settings.getString(key, "");
+//}
 
 	/**
 	 * û Ȩ
@@ -313,19 +321,7 @@ public class Tools {
 		return paramContext.checkCallingOrSelfPermission(paramString) == 0;
 	}
 
-	/**
-	 * ʹ SharedPreferences ȡ
-	 * 
-	 * @param context
-	 * @param key
-	 * @return value
-	 */
-	public static String getSharedPreference(Context context, String key) {
-		SharedPreferences sharedPre = context.getSharedPreferences("config", Context.MODE_PRIVATE);
-		return sharedPre.getString(key, "");
-
-	}
-
+	
 	protected static final String PREFS_FILE = "gank_device_id.xml";
 	protected static final String PREFS_DEVICE_ID = "gank_device_id";
 	protected static String uuid;
@@ -334,8 +330,8 @@ public class Tools {
 		if (uuid == null) {
 			synchronized (Tools.class) {
 				if (uuid == null) {
-					final SharedPreferences prefs = context.getSharedPreferences(PREFS_FILE, 0);
-					final String id = prefs.getString(PREFS_DEVICE_ID, null);
+					
+					final String id = settings.getString(PREFS_DEVICE_ID, null);
 
 					if (id != null) {
 						// Use the ids previously computed and stored in the
@@ -364,7 +360,7 @@ public class Tools {
 						}
 
 						// Write the value out to the prefs file
-						prefs.edit().putString(PREFS_DEVICE_ID, uuid).commit();
+						settings.edit().putString(PREFS_DEVICE_ID, uuid).commit();
 					}
 				}
 			}

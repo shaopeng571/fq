@@ -42,7 +42,8 @@ public class OrderManager {
 				@Override
 				public void onResult(ResultInfo resultInfo, String msg) {
 					// TODO Auto-generated method stub
-					if (resultInfo.code == 1) {
+					if (resultInfo.code == 0) {
+						
 						deleteOrder(mActivity,bundle.getString("chanleId") , bundle.getString("json"));
 					}else {
 						Message faildmsg=new Message();
@@ -105,6 +106,7 @@ public class OrderManager {
 					return;
 				}
 				int count = 0;
+				FLogger.d(resultInfo.toString());
 				if (resultInfo.code != 0) {// 发送不成功，重复发送
 //					try {
 							Message msg=new Message();
