@@ -89,49 +89,7 @@
             android:windowSoftInputMode="adjustPan|stateHidden" >
         </activity>
 
-       
-        <!-- SplashActivity为闪屏Activity,继承com.snowfish.cn.ganga.helper.SFOnlineSplashActivity并将该Activity设置为程序启动时的Activity -->
-        <activity
-            android:name="com.fqwl.hy_yijiechannelsdk.SplashActivity"
-            android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-           
-        </activity>
-        <!-- SNOWFISH SDK -->
-
-        <service
-            android:name="com.snowfish.a.a.s.ABGSvc"
-            android:enabled="true"
-            android:process="com.snowfish.a.a.bg" >
-            <intent-filter>
-                <action android:name="com.snowfish.a.a.s.ABGSvc" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </service>
-
-        <meta-data
-            android:name="com.snowfish.appid"
-            android:value="{6D1B90B2-6E970D7D}" >
-        </meta-data>
-        <meta-data
-            android:name="com.snowfish.channelid"
-            android:value="{4ff036a1-3254eafe}" >
-        </meta-data>
-        <meta-data
-            android:name="com.snowfish.customer"
-            android:value="SNOWFISH" >
-        </meta-data>
-        <meta-data
-            android:name="com.snowfish.channel"
-            android:value="SNOWFISH" >
-        </meta-data>
-        <meta-data
-            android:name="com.snowfish.sdk.version"
-            android:value="1" >
-        </meta-data>
-
-        <!-- SNOWFISH SDK -->
+ 
          <meta-data
             android:name="HyGamePlatformChannleId"
             android:value="0" />

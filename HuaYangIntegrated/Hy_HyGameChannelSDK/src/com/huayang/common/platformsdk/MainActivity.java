@@ -94,7 +94,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		@Override
 		public void loginOnFinish(String arg0, int arg1) {
 			// TODO Auto-generated method stub
-//			Log.e("fq", "登录成功！！！"+arg0);
+			Log.e("fq", "登录成功！！！"+arg0);
 			switch (arg1) {
 			case 0:// 登录成功
 				try {

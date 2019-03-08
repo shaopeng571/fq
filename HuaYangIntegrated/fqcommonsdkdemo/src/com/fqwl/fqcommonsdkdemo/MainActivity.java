@@ -1,6 +1,5 @@
 package com.fqwl.fqcommonsdkdemo;
 
-import org.cocos2dx.lib.Cocos2dxActivity;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -23,7 +22,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class MainActivity extends Cocos2dxActivity implements OnClickListener {
+public class MainActivity extends Activity implements OnClickListener {
  private String uid;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
