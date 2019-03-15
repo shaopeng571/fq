@@ -579,7 +579,7 @@ public class HyPayMainActivity extends BaseActivity
 		                    startActivity(intent);
 		            
 					} catch (Exception e) {
-						Toast.makeText(HyPayMainActivity.this, "请安装支付插件后重试", Toast.LENGTH_SHORT).show();
+//						Toast.makeText(HyPayMainActivity.this, "请安装支付插件后重试", Toast.LENGTH_SHORT).show();
 					}
 					 finish(); 
 	                    return true;
