@@ -22,7 +22,7 @@ public class FLogger {
 	private static final String SUFFIX = ".java";
 	
 	// 是否允许显示Log
-	private static boolean SHOW_LOG_FLAG = false;
+	private static boolean SHOW_LOG_FLAG = true;
 	// 是否有设置全局tag
 	private static boolean mIsGlobalTagEmpty = true;
 	// 全局tag

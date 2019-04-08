@@ -98,6 +98,8 @@ public class HySDKManager implements ISdkManager {
 	public boolean showExitView(Activity activity) {
 		// TODO Auto-generated method stub
 		FLogger.d("showExitView");
+//		return true;
+//		
 		return implsdkcenter.showExitView(activity);
 	}
 
@@ -266,6 +268,7 @@ implsdkcenter.initGamesApi(context);
 	@Override
 	public boolean hasExitView(Context context) {
 		// TODO Auto-generated method stub
+		FLogger.d("hasExitView");
 		return implsdkcenter.hasExitView();
 	}
 

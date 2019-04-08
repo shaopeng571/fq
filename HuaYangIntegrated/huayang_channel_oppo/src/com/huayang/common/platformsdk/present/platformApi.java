@@ -29,6 +29,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 
 public class platformApi implements SdkApi {
@@ -168,15 +169,23 @@ public class platformApi implements SdkApi {
 	}
 
 	@Override
-	public boolean showExitView(Activity context) {
+	public boolean showExitView(final Activity context) {
 		this.mActivity = context;
-		GameCenterSDK.getInstance().onExit(context, new GameExitCallback() {
+		FLogger.d("oppo exitview");
+		mActivity.runOnUiThread(new Runnable() {
+			
 			@Override
-			public void exitGame() {
-				// 在此加入退出游戏的代码
-				mBack.exitViewOnFinish("游戏退出", 0);
+			public void run() {
+				GameCenterSDK.getInstance().onExit(context, new GameExitCallback() {
+					@Override
+					public void exitGame() {
+						// 在此加入退出游戏的代码
+						mBack.exitViewOnFinish("游戏退出", 0);
+					}
+				});
 			}
 		});
+		
 		return true;
 	}
 
@@ -256,7 +265,7 @@ public class platformApi implements SdkApi {
 	@Override
 	public String getChannelID() {
 		// TODO Auto-generated method stub
-		return null;
+		return "7";
 	}
 
 	@Override

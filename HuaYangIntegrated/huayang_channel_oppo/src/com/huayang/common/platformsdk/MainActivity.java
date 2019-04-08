@@ -11,11 +11,14 @@ import com.fqwl.hycommonsdk.present.HySDKManager;
 import com.fqwl.hycommonsdk.util.logutils.FLogger;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -154,6 +157,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		@Override
 		public void exitViewOnFinish(String arg0, int arg1) {
 			// TODO Auto-generated method stub
+			if (arg1==0) {
+				exit();
+			}
 			
 		}
 		
@@ -343,5 +349,46 @@ public class MainActivity extends Activity implements OnClickListener {
 		hySDKManager.onActivityResult(requestCode, resultCode,
 				data);
 	}
-
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_BACK) {// 澶勭悊杩斿洖閿�
+			onExit();
+//			if (HySDKManager.getInstance().hasExitView(this)) {
+//				HySDKManager.getInstance().showExitView(this);
+//			} else {
+//				exit();
+//			}
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+	public void onExit()
+	  {
+	    if (HySDKManager.getInstance().hasExitView(this))
+	    {
+	      HySDKManager.getInstance().showExitView(this);
+	      return;
+	    }
+	    AlertDialog.Builder localBuilder = new AlertDialog.Builder(this);
+	    localBuilder.setTitle("");
+	    localBuilder.setMessage("��������");
+	    localBuilder.setPositiveButton("����", new DialogInterface.OnClickListener()
+	    {
+	      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt)
+	      {
+	    	  exit();
+	      }
+	    });
+	    localBuilder.setNegativeButton("����", new DialogInterface.OnClickListener()
+	    {
+	      public void onClick(DialogInterface paramAnonymousDialogInterface, int paramAnonymousInt) {}
+	    });
+	    localBuilder.show();
+	  }
+	private void exit() {
+		// TODO Auto-generated method stub
+		this.finish();
+		System.exit(0);
+	}
 }
