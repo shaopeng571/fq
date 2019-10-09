@@ -16,5 +16,87 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+           <style name="HJSDK.ActivityTheme" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>  
+        <item name="android:backgroundDimEnabled">false</item> 
+         </style>
+<style name="popxiala">
+        <item name="android:windowEnterAnimation">@anim/popxiala</item>
+        <item name="android:windowExitAnimation">@anim/popxialaexit</item>
+    </style>
 
+
+    <style name="FullscreenTheme" parent="android:Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="metaButtonBarStyle">@style/ButtonBar</item>
+        <item name="metaButtonBarButtonStyle">@style/ButtonBarButton</item>
+    </style>
+
+    <style name="ButtonBar">
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:background">@android:drawable/bottom_bar</item>
+    </style>
+
+    <style name="ButtonBarButton" />
+    
+    <style name="HJCustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/hj_style_checkbox</item>
+        
+    </style>
+    
+    <!-- 弹出窗体样式  （透明）-->
+    <style name="HJDialogThemeTransparent" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/hj_dialog_bg_transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>  
+        <item name="android:backgroundDimEnabled">false</item> 
+    </style>
+    
+    <!-- 弹出窗体样式 -->
+    <style name="HJDialogTheme" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/hj_dialog_bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>  
+        <item name="android:backgroundDimEnabled">false</item> 
+    </style>
+    <!-- 弹出payback样式 -->
+    <style name="HJDialogPayBackTheme" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/hj_dialog_bg</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>  
+        <item name="android:backgroundDimEnabled">false</item> 
+    </style>
+    <!-- loading 样式 -->
+    <style name="HJDialog" parent="@android:style/Theme.Dialog">  
+    <item name="android:windowFrame">@null</item>  
+        <item name="android:windowIsFloating">true</item>  
+        <item name="android:windowContentOverlay">@null</item>  
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>  
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>  
+    </style>  
+    
+    <style name="HJLoadingDialog" parent="@style/HJDialog">  
+        <item name="android:windowBackground">@android:color/transparent</item>  
+        <item name="android:windowNoTitle">true</item>  
+    </style> 
+    <!-- loading 样式 end -->
+<style name="fq_Dialog" parent="@android:Theme.DeviceDefault.Light.Dialog">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
 </resources>

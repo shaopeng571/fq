@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+            android:layout_gravity="center"
+    
+    android:orientation="vertical" >
+
+    <!-- 登录Activity布局 -->
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+                android:layout_gravity="center"
+        
+        android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/hj_allre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/hj_dialog_bg"
+           android:paddingTop="10dp"
+        >
+        <LinearLayout
+            android:id="@+id/hj_titlelin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="8dp" >
+
+            <ImageView
+                android:id="@+id/hj_iv_back"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginRight="0dp"
+                android:padding="2dp"
+                android:visibility="gone"
+                android:src="@drawable/hj_newloginback" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/hj_mainlin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="@dimen/hj_login_Roundsize"
+                android:layout_height="@dimen/hj_login_Roundsize"
+                android:layout_marginBottom="@dimen/hj_login_Roundpandingtopandbottom"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="@dimen/hj_login_Roundpandingtopandbottom"
+                />
+
+           <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="35dp"
+                android:layout_gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/re_account"
+                    android:layout_width="@dimen/hj_login_broadsizewidth"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/fq_inputframe_shape"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                    <ImageView
+                        android:id="@+id/imageView2"
+                        android:layout_width="@dimen/hj_smallicon_size"
+                        android:layout_height="@dimen/hj_smallicon_size"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/hj_newaccounticon" />
+
+                    <EditText
+                        android:id="@+id/edt_account"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:layout_toRightOf="@+id/imageView2"
+                        android:background="@drawable/hj_login_bg_txt_null"
+                        android:ems="10"
+                        android:imeOptions="flagNoExtractUi"
+                        android:inputType="textPersonName"
+                        android:padding="4dp"
+                        android:enabled="false"
+                        android:singleLine="true"
+                        android:textColor="@color/hj_base_black"
+                        android:textColorHint="@color/hj_newhintgrey" >
+
+                        <requestFocus />
+                    </EditText>
+                </RelativeLayout>
+
+ 
+<LinearLayout
+                    android:id="@+id/btn_login"
+                    android:layout_width="@dimen/hj_login_broadsizewidth"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/re_account"
+                    android:layout_alignRight="@+id/re_account"
+                    android:layout_below="@+id/re_account"
+                    android:background="@color/hj_fastlogin_color"
+                    android:padding="9dp"
+                    android:gravity="center"
+                    >
+                       <TextView 
+                         android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     android:text="@string/hj_btn_login_fast"
+                    android:textColor="@color/hj_base_white"
+                    />
+                    </LinearLayout>
+                     <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="@dimen/hj_login_broadsizewidth"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/btn_login"
+                    android:layout_alignRight="@+id/btn_login"
+                    android:layout_below="@+id/btn_login"
+                    android:orientation="horizontal"
+                    >
+    <LinearLayout
+                    android:id="@+id/btn_reg"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@color/hj_reg_color"
+                    android:gravity="center"
+                    android:paddingTop="9dp"
+                    android:paddingBottom="9dp"
+                    >
+                       <TextView 
+                           android:id="@+id/cl_text_regorbind"
+                         android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                     android:text="@string/hj_btn_login_tempbind"
+                    android:textColor="@color/hj_base_white"
+                    />
+                    </LinearLayout>
+                    <View android:layout_width="10dp"
+                        android:layout_height="0dp"
+                        />
+                <LinearLayout
+                    android:id="@+id/btn_change"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@color/hj_login_color"
+                    android:gravity="center"
+                    android:paddingTop="9dp"
+                    android:paddingBottom="9dp"
+                    >
+                       <TextView 
+                         android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                     android:text="@string/hj_btn_login_tempchange"
+                    android:textColor="@color/hj_base_white"
+                    />
+                    </LinearLayout>
+                    </LinearLayout>
+                  
+                 
+            </RelativeLayout>
+
+          
+        </LinearLayout>
+
+        <View
+            android:id="@+id/hj_cutoffrule"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_below="@+id/hj_mainlin"
+            android:layout_alignLeft="@+id/hj_mainlin"
+            android:layout_alignRight="@+id/hj_mainlin"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@color/hj_newloginlinelittlegrey" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/hj_mainlin"
+            android:layout_alignLeft="@+id/hj_mainlin"
+            android:layout_below="@+id/hj_cutoffrule"
+            android:gravity="center"
+            android:padding="20dp"
+            android:orientation="horizontal" >
+           <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/hj_newhintdeepgrey"
+                android:text="@string/hj_pwdprotect" />
+        
+        
+        </LinearLayout>
+</RelativeLayout>
+       
+
+     <!--   <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/hj_allre"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/img_btn_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hj_paymenyclose" />
+        </LinearLayout>-->  
+    </RelativeLayout>
+
+</ScrollView>

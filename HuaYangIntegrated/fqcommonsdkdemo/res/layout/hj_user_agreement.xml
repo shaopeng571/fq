@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/hj_frame_minwidthsize"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/hj_base_white" >
+
+    <WebView
+        android:id="@+id/txt_agreement"
+        android:layout_width="400dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="28dp"
+        android:layout_toLeftOf="@+id/img_btn_close"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/img_btn_close"
+        android:layout_width="@dimen/fq_activity_closeicon_frame"
+        android:layout_height="@dimen/fq_activity_closeicon_frame"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/txt_agreement"
+        android:src="@drawable/hj_btn_close" />
+
+</RelativeLayout>

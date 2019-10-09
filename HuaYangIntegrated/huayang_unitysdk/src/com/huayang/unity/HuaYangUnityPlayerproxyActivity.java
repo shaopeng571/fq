@@ -7,14 +7,18 @@ import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.fqwl.hycommonsdk.model.CommonSdkCallBack;
@@ -119,7 +123,19 @@ public abstract class HuaYangUnityPlayerproxyActivity extends com.unity3d.player
 		HySDKManager.getInstance().onDestroy(this);
 		System.exit(0);
 	}
-
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		if (keyCode == KeyEvent.KEYCODE_BACK) {// 处理返回键
+			if (HySDKManager.getInstance().hasExitView(this)) {
+				HySDKManager.getInstance().showExitView(this);
+			} else {
+				exit();
+			}
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
@@ -393,10 +409,39 @@ public abstract class HuaYangUnityPlayerproxyActivity extends com.unity3d.player
 		}
 		return false;
 	}
+	private AlertDialog exitDialog;
 	private void exit() {
-		// TODO Auto-generated method stub
-		this.finish();
-		System.exit(0);
+		if (exitDialog != null) {
+			Log.d("fq", "已弹出");
+			return;
+		}
+		// cp自己实现退出界面
+		AlertDialog.Builder builder;
+		if (Build.VERSION.SDK_INT >= 21) {
+			builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Light_Dialog_Alert);
+		} else {
+			builder = new AlertDialog.Builder(this, AlertDialog.THEME_HOLO_LIGHT);
+		}
+		builder.setMessage("确定退出游戏?");
+		builder.setCancelable(false);
+		builder.setPositiveButton("继续游戏", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				Log.d("fq", "点击了继续游戏");
+				exitDialog = null;
+			}
+		});
+		builder.setNeutralButton("退出游戏", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int whichButton) {
+				Log.d("fq", "点击了退出游戏");
+				exitDialog = null;
+				requestLogout();
+				finish();// 销毁Activity
+				android.os.Process.killProcess(android.os.Process.myPid());// 杀进程
+				System.exit(0);// 退出
+			}
+		});
+		exitDialog = builder.create();
+		exitDialog.show();
 	}
 
 	private CommonSdkCallBack sdkcallback = new CommonSdkCallBack() {
@@ -445,7 +490,18 @@ public abstract class HuaYangUnityPlayerproxyActivity extends com.unity3d.player
 				}
 				
 				break;
-			case 2:// sdk登录页面退出 （不是所有渠道都有该状态）
+//			case 2:// sdk登录页面退出 （不是所有渠道都有该状态）
+//				JSONObject json = new JSONObject();
+//				try {
+//
+//					json.put("msg", "cancel");
+//
+//				} catch (Exception e) {
+//				}
+//
+//				callUnityFunc("onLoginFailed", json.toString());
+//				break;
+			default:
 				JSONObject json = new JSONObject();
 				try {
 
@@ -453,10 +509,9 @@ public abstract class HuaYangUnityPlayerproxyActivity extends com.unity3d.player
 
 				} catch (Exception e) {
 				}
-
+					
 				callUnityFunc("onLoginFailed", json.toString());
-				break;
-			default:
+				requestLogin();
 				break;
 			}
 		}

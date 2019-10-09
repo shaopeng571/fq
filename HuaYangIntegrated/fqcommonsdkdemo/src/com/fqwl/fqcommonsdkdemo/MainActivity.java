@@ -81,11 +81,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	}
 private CommonSdkCallBack sdkcallback=new CommonSdkCallBack() {
 		
-		@Override
-		public void realNameOnFinish(int arg0) {
-			// TODO Auto-generated method stub
-			
-		}
+	
 		
 		/**
 		* 注销接口回调
@@ -147,15 +143,7 @@ private CommonSdkCallBack sdkcallback=new CommonSdkCallBack() {
 			}
 		}
 
-		/**
-		* 
-		* 该接口已经sdk处理，游戏方不用处理
-		*/
-		@Override
-		public void getAdultOnFinish(String arg0, int arg1) {
-			// TODO Auto-generated method stub
-			
-		}
+		
 
 
 		/**

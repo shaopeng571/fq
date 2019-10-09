@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hj_activityRoot"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+            android:layout_gravity="center"
+    
+    android:orientation="vertical" >
+
+    <!-- 登录Activity布局 -->
+
+    <LinearLayout
+        android:layout_width="450dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/hj_dialog_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+                android:layout_gravity="center"
+        
+        android:padding="5dp" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="@dimen/hj_login_Roundsize"
+            android:layout_height="@dimen/hj_login_Roundsize"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/hj_login_Roundpandingtopandbottom"
+            android:layout_marginBottom="@dimen/hj_login_Roundpandingtopandbottom"
+            />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:background="@color/hj_newlinegrey" />
+
+        <LinearLayout
+            android:id="@+id/btn_fast_reg"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="@dimen/hj_login_itemspace"
+            android:background="@drawable/hj_login_bg_btn_green"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/hj_login_Roundpandingtopandbottom"
+            android:layout_marginBottom="@dimen/hj_login_Roundpandingtopandbottom"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="@string/hj_btn_login_fast"
+                android:textColor="@color/hj_base_white"
+                android:textSize="@dimen/hj_guide_bigfontsize" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hj_btn_login_fasten"
+                android:textColor="@color/hj_base_white"
+                android:textSize="@dimen/hj_guide_littlefontsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_tologin"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="@dimen/hj_login_itemspace"
+            android:background="@drawable/hj__login_bg_btn_orange"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/hj_login_Roundpandingtopandbottom"
+            android:layout_marginBottom="@dimen/hj_login_Roundpandingtopandbottom"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/hj_btn_login_login"
+                android:textColor="@color/hj_base_white"
+                android:textSize="@dimen/hj_guide_bigfontsize" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hj_btn_login_loginen"
+                android:textColor="@color/hj_base_white"
+                android:textSize="@dimen/hj_guide_littlefontsize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btn_reg"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginRight="@dimen/hj_login_itemspace"
+            android:background="@drawable/hj_login_bg_btn_shallow_blue"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/hj_login_Roundpandingtopandbottom"
+            android:layout_marginBottom="@dimen/hj_login_Roundpandingtopandbottom"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/hj_btn_login_reg"
+                android:textColor="@color/hj_base_white"
+                android:textSize="@dimen/hj_guide_bigfontsize" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hj_btn_login_regen"
+                android:textColor="@color/hj_base_white"
+                android:textSize="@dimen/hj_guide_littlefontsize" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

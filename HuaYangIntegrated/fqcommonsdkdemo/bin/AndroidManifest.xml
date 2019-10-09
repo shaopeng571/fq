@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -64,7 +64,7 @@
             android:name="com.tomato.fqsdk.HyAgreementActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:screenOrientation="landscape"
-            android:theme="@style/HJDialogThemeTransparent" >
+            >
         </activity>
         <activity
             android:name="com.tomato.fqsdk.HyFindPwdActivity"

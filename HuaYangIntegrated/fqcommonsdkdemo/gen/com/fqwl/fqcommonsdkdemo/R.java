@@ -87,39 +87,39 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
     
          */
-        public static final int activity_horizontal_margin=0x7f060016;
-        public static final int activity_vertical_margin=0x7f060017;
+        public static final int activity_horizontal_margin=0x7f060000;
+        public static final int activity_vertical_margin=0x7f060001;
         /** 
      Inset shadow for RoundRectDrawableWithShadow. It is used to avoid gaps between the card
      and the shadow.
     
          */
-        public static final int cardview_compat_inset_shadow=0x7f06000f;
+        public static final int cardview_compat_inset_shadow=0x7f060011;
         /**  Elevation value to use for CardViews. Pre-L, it is equal to shadow size. 
          */
-        public static final int cardview_default_elevation=0x7f06000e;
+        public static final int cardview_default_elevation=0x7f060010;
         /**  Default radius for CardView corners. 
          */
-        public static final int cardview_default_radius=0x7f06000d;
-        public static final int fq_activity_closeicon_frame=0x7f060015;
-        public static final int fq_activity_logo_width=0x7f060011;
-        public static final int fq_input_edit_frame_width=0x7f060013;
-        public static final int fq_login_register_frame_height=0x7f060014;
-        public static final int fq_okbtn_dimen=0x7f060010;
-        public static final int fq_reg_inputframe_width=0x7f060012;
-        public static final int hj_font_size=0x7f060008;
-        public static final int hj_frame_heightsize_pro=0x7f06000c;
-        public static final int hj_frame_minwidthsize=0x7f060000;
-        public static final int hj_guide_bigfontsize=0x7f060001;
-        public static final int hj_guide_littlefontsize=0x7f060002;
-        public static final int hj_login_Roundpandingtopandbottom=0x7f060005;
-        public static final int hj_login_Roundpandingtopandbottom_pro=0x7f060009;
-        public static final int hj_login_Roundsize=0x7f060004;
-        public static final int hj_login_Roundsize_pro=0x7f06000a;
-        public static final int hj_login_broadsizewidth=0x7f060006;
-        public static final int hj_login_broadsizewidth_pro=0x7f06000b;
-        public static final int hj_login_itemspace=0x7f060003;
-        public static final int hj_smallicon_size=0x7f060007;
+        public static final int cardview_default_radius=0x7f06000f;
+        public static final int fq_activity_closeicon_frame=0x7f060017;
+        public static final int fq_activity_logo_width=0x7f060013;
+        public static final int fq_input_edit_frame_width=0x7f060015;
+        public static final int fq_login_register_frame_height=0x7f060016;
+        public static final int fq_okbtn_dimen=0x7f060012;
+        public static final int fq_reg_inputframe_width=0x7f060014;
+        public static final int hj_font_size=0x7f06000a;
+        public static final int hj_frame_heightsize_pro=0x7f06000e;
+        public static final int hj_frame_minwidthsize=0x7f060002;
+        public static final int hj_guide_bigfontsize=0x7f060003;
+        public static final int hj_guide_littlefontsize=0x7f060004;
+        public static final int hj_login_Roundpandingtopandbottom=0x7f060007;
+        public static final int hj_login_Roundpandingtopandbottom_pro=0x7f06000b;
+        public static final int hj_login_Roundsize=0x7f060006;
+        public static final int hj_login_Roundsize_pro=0x7f06000c;
+        public static final int hj_login_broadsizewidth=0x7f060008;
+        public static final int hj_login_broadsizewidth_pro=0x7f06000d;
+        public static final int hj_login_itemspace=0x7f060005;
+        public static final int hj_smallicon_size=0x7f060009;
     }
     public static final class drawable {
         public static final int cl_fastlogin=0x7f020000;
@@ -462,156 +462,134 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int umeng_socialize_share=0x7f030013;
     }
     public static final class string {
-        public static final int action_settings=0x7f070078;
+        public static final int action_settings=0x7f070002;
         public static final int app_name=0x7f070000;
-        public static final int dummy_button=0x7f070004;
-        public static final int dummy_button_clean=0x7f070006;
-        public static final int dummy_button_login=0x7f070003;
-        public static final int dummy_button_reg=0x7f070002;
-        public static final int dummy_button_xy=0x7f070005;
-        public static final int dummy_content=0x7f070001;
-        public static final int hello_world=0x7f070077;
-        public static final int hj_bind_text1=0x7f070067;
-        public static final int hj_bind_text2=0x7f070068;
-        public static final int hj_btn_bind_change=0x7f070026;
-        public static final int hj_btn_bind_newphone=0x7f070025;
-        public static final int hj_btn_bind_okchange=0x7f070027;
-        public static final int hj_btn_bind_phone=0x7f070024;
-        public static final int hj_btn_bind_pwd=0x7f07001f;
-        public static final int hj_btn_bindtypeapp=0x7f070064;
-        public static final int hj_btn_bindtypephone=0x7f070065;
-        public static final int hj_btn_find_acc=0x7f070018;
-        public static final int hj_btn_find_back=0x7f07001a;
-        public static final int hj_btn_find_be=0x7f070021;
-        public static final int hj_btn_find_email=0x7f07001e;
-        public static final int hj_btn_find_next=0x7f07001b;
-        public static final int hj_btn_find_ok=0x7f070022;
-        public static final int hj_btn_find_phone=0x7f070028;
-        public static final int hj_btn_find_send=0x7f070023;
-        public static final int hj_btn_find_setpwd=0x7f070020;
-        public static final int hj_btn_find_tip=0x7f07001d;
-        public static final int hj_btn_login_bind=0x7f070016;
-        public static final int hj_btn_login_bindphone=0x7f070019;
-        public static final int hj_btn_login_faile=0x7f07001c;
-        public static final int hj_btn_login_fast=0x7f070014;
-        public static final int hj_btn_login_fasten=0x7f070015;
+        public static final int dummy_button=0x7f070006;
+        public static final int dummy_button_clean=0x7f070008;
+        public static final int dummy_button_login=0x7f070005;
+        public static final int dummy_button_reg=0x7f070004;
+        public static final int dummy_button_xy=0x7f070007;
+        public static final int dummy_content=0x7f070003;
+        public static final int hello_world=0x7f070001;
+        public static final int hj_bind_text1=0x7f070069;
+        public static final int hj_bind_text2=0x7f07006a;
+        public static final int hj_btn_bind_change=0x7f070028;
+        public static final int hj_btn_bind_newphone=0x7f070027;
+        public static final int hj_btn_bind_okchange=0x7f070029;
+        public static final int hj_btn_bind_phone=0x7f070026;
+        public static final int hj_btn_bind_pwd=0x7f070021;
+        public static final int hj_btn_bindtypeapp=0x7f070066;
+        public static final int hj_btn_bindtypephone=0x7f070067;
+        public static final int hj_btn_find_acc=0x7f07001a;
+        public static final int hj_btn_find_back=0x7f07001c;
+        public static final int hj_btn_find_be=0x7f070023;
+        public static final int hj_btn_find_email=0x7f070020;
+        public static final int hj_btn_find_next=0x7f07001d;
+        public static final int hj_btn_find_ok=0x7f070024;
+        public static final int hj_btn_find_phone=0x7f07002a;
+        public static final int hj_btn_find_send=0x7f070025;
+        public static final int hj_btn_find_setpwd=0x7f070022;
+        public static final int hj_btn_find_tip=0x7f07001f;
+        public static final int hj_btn_login_bind=0x7f070018;
+        public static final int hj_btn_login_bindphone=0x7f07001b;
+        public static final int hj_btn_login_faile=0x7f07001e;
+        public static final int hj_btn_login_fast=0x7f070016;
+        public static final int hj_btn_login_fasten=0x7f070017;
         /**  <string name="hj_txt_temp">游客</string> 
          */
-        public static final int hj_btn_login_findpwd=0x7f07000f;
-        public static final int hj_btn_login_login=0x7f070010;
-        public static final int hj_btn_login_loginen=0x7f070011;
-        public static final int hj_btn_login_ok=0x7f070061;
-        public static final int hj_btn_login_reg=0x7f070012;
-        public static final int hj_btn_login_regen=0x7f070013;
-        public static final int hj_btn_login_tempbind=0x7f07005b;
-        public static final int hj_btn_login_tempchange=0x7f07005c;
-        public static final int hj_btn_reggetcode=0x7f07005f;
-        public static final int hj_btn_regtypeapp=0x7f070062;
-        public static final int hj_btn_regtypephone=0x7f070063;
-        public static final int hj_edt_reg_account=0x7f07003b;
-        public static final int hj_edt_reg_phone=0x7f07003c;
-        public static final int hj_edt_regcode=0x7f070060;
-        public static final int hj_emailtip=0x7f07000c;
-        public static final int hj_emailtip2=0x7f07000d;
-        public static final int hj_emailtip3=0x7f07000e;
-        public static final int hj_find1_geshi=0x7f07006a;
-        public static final int hj_find1_pleaseact=0x7f070069;
-        public static final int hj_find2_qq=0x7f07006b;
-        public static final int hj_find2_text1=0x7f07006d;
-        public static final int hj_find2_text2=0x7f07006e;
-        public static final int hj_find2_text3=0x7f07006f;
-        public static final int hj_find2_text4=0x7f070070;
-        public static final int hj_find3_newpwd=0x7f07006c;
-        public static final int hj_find3_text1=0x7f070071;
-        public static final int hj_initassetsfile=0x7f070074;
-        public static final int hj_loginaccounthint=0x7f070055;
-        public static final int hj_loginpwdhint=0x7f070056;
-        public static final int hj_newbtnbindphone=0x7f070058;
-        public static final int hj_newbtnfindpwd=0x7f070059;
-        public static final int hj_newreg=0x7f070057;
-        public static final int hj_payisback_buttonleft=0x7f070072;
-        public static final int hj_payisback_buttonright=0x7f070073;
-        public static final int hj_pleasepresspwd=0x7f070038;
-        public static final int hj_pwdprotect=0x7f07005a;
-        public static final int hj_text_loading=0x7f070017;
-        public static final int hj_text_pay=0x7f07002e;
-        public static final int hj_text_pay_head=0x7f07002a;
-        public static final int hj_text_pay_money=0x7f07002f;
-        public static final int hj_text_pay_style=0x7f07002d;
-        public static final int hj_text_pay_tip=0x7f070030;
-        public static final int hj_text_pay_tip2=0x7f070031;
-        public static final int hj_text_pay_weixin=0x7f07002c;
-        public static final int hj_text_pay_zhifubao=0x7f07002b;
-        public static final int hj_text_paygamename=0x7f070029;
-        public static final int hj_title_bindemail=0x7f070066;
-        public static final int hj_toast_changebindsuccess=0x7f070049;
-        public static final int hj_toast_findpwdpleasewirteall=0x7f070052;
-        public static final int hj_toast_findpwdqq=0x7f070054;
-        public static final int hj_toast_findpwdsuccess=0x7f070053;
-        public static final int hj_toast_full=0x7f070033;
-        public static final int hj_toast_loginfull=0x7f07003a;
-        public static final int hj_toast_loginnotaccount=0x7f070036;
-        public static final int hj_toast_loginnotempty=0x7f070035;
-        public static final int hj_toast_loginpleasepressaccount=0x7f070039;
-        public static final int hj_toast_loginsuccess=0x7f070034;
-        public static final int hj_toast_logintempnotempty=0x7f070037;
-        public static final int hj_toast_paychecknetwork=0x7f070051;
-        public static final int hj_toast_paypayfail=0x7f07004c;
-        public static final int hj_toast_paypaysuccess=0x7f07004d;
-        public static final int hj_toast_paypaywait=0x7f07004e;
-        public static final int hj_toast_paypleaseupwxpay=0x7f070050;
-        public static final int hj_toast_paywxpayloading=0x7f07004f;
-        public static final int hj_toast_regbindsuccess=0x7f07004a;
-        public static final int hj_toast_reggetcode=0x7f070040;
-        public static final int hj_toast_reggetcodesuccess=0x7f07003d;
-        public static final int hj_toast_regnotempty=0x7f070048;
-        public static final int hj_toast_regpleaseac=0x7f070042;
-        public static final int hj_toast_regpleasepwd=0x7f070043;
-        public static final int hj_toast_regpleaseread=0x7f070044;
-        public static final int hj_toast_regpleasewritecode=0x7f07003f;
-        public static final int hj_toast_regpleasewriteokphone=0x7f070046;
-        public static final int hj_toast_regpleasewritephone=0x7f070045;
-        public static final int hj_toast_regregsuccess=0x7f07004b;
-        public static final int hj_toast_regtempbindnotempty=0x7f070047;
-        public static final int hj_toast_regwait=0x7f07003e;
-        public static final int hj_toast_writerightcode=0x7f070041;
-        public static final int hj_txt_regiread=0x7f07005d;
-        public static final int hj_user_agreement=0x7f07005e;
-        public static final int hj_wxappid=0x7f070075;
-        public static final int hj_wxmchid=0x7f070076;
-        public static final int register_name_digits=0x7f070032;
-        public static final int txt_account=0x7f07000a;
-        public static final int txt_default=0x7f070008;
-        public static final int txt_fast_reg=0x7f070009;
-        public static final int txt_hello=0x7f070007;
-        public static final int txt_pwd=0x7f07000b;
+        public static final int hj_btn_login_findpwd=0x7f070011;
+        public static final int hj_btn_login_login=0x7f070012;
+        public static final int hj_btn_login_loginen=0x7f070013;
+        public static final int hj_btn_login_ok=0x7f070063;
+        public static final int hj_btn_login_reg=0x7f070014;
+        public static final int hj_btn_login_regen=0x7f070015;
+        public static final int hj_btn_login_tempbind=0x7f07005d;
+        public static final int hj_btn_login_tempchange=0x7f07005e;
+        public static final int hj_btn_reggetcode=0x7f070061;
+        public static final int hj_btn_regtypeapp=0x7f070064;
+        public static final int hj_btn_regtypephone=0x7f070065;
+        public static final int hj_edt_reg_account=0x7f07003d;
+        public static final int hj_edt_reg_phone=0x7f07003e;
+        public static final int hj_edt_regcode=0x7f070062;
+        public static final int hj_emailtip=0x7f07000e;
+        public static final int hj_emailtip2=0x7f07000f;
+        public static final int hj_emailtip3=0x7f070010;
+        public static final int hj_find1_geshi=0x7f07006c;
+        public static final int hj_find1_pleaseact=0x7f07006b;
+        public static final int hj_find2_qq=0x7f07006d;
+        public static final int hj_find2_text1=0x7f07006f;
+        public static final int hj_find2_text2=0x7f070070;
+        public static final int hj_find2_text3=0x7f070071;
+        public static final int hj_find2_text4=0x7f070072;
+        public static final int hj_find3_newpwd=0x7f07006e;
+        public static final int hj_find3_text1=0x7f070073;
+        public static final int hj_initassetsfile=0x7f070076;
+        public static final int hj_loginaccounthint=0x7f070057;
+        public static final int hj_loginpwdhint=0x7f070058;
+        public static final int hj_newbtnbindphone=0x7f07005a;
+        public static final int hj_newbtnfindpwd=0x7f07005b;
+        public static final int hj_newreg=0x7f070059;
+        public static final int hj_payisback_buttonleft=0x7f070074;
+        public static final int hj_payisback_buttonright=0x7f070075;
+        public static final int hj_pleasepresspwd=0x7f07003a;
+        public static final int hj_pwdprotect=0x7f07005c;
+        public static final int hj_text_loading=0x7f070019;
+        public static final int hj_text_pay=0x7f070030;
+        public static final int hj_text_pay_head=0x7f07002c;
+        public static final int hj_text_pay_money=0x7f070031;
+        public static final int hj_text_pay_style=0x7f07002f;
+        public static final int hj_text_pay_tip=0x7f070032;
+        public static final int hj_text_pay_tip2=0x7f070033;
+        public static final int hj_text_pay_weixin=0x7f07002e;
+        public static final int hj_text_pay_zhifubao=0x7f07002d;
+        public static final int hj_text_paygamename=0x7f07002b;
+        public static final int hj_title_bindemail=0x7f070068;
+        public static final int hj_toast_changebindsuccess=0x7f07004b;
+        public static final int hj_toast_findpwdpleasewirteall=0x7f070054;
+        public static final int hj_toast_findpwdqq=0x7f070056;
+        public static final int hj_toast_findpwdsuccess=0x7f070055;
+        public static final int hj_toast_full=0x7f070035;
+        public static final int hj_toast_loginfull=0x7f07003c;
+        public static final int hj_toast_loginnotaccount=0x7f070038;
+        public static final int hj_toast_loginnotempty=0x7f070037;
+        public static final int hj_toast_loginpleasepressaccount=0x7f07003b;
+        public static final int hj_toast_loginsuccess=0x7f070036;
+        public static final int hj_toast_logintempnotempty=0x7f070039;
+        public static final int hj_toast_paychecknetwork=0x7f070053;
+        public static final int hj_toast_paypayfail=0x7f07004e;
+        public static final int hj_toast_paypaysuccess=0x7f07004f;
+        public static final int hj_toast_paypaywait=0x7f070050;
+        public static final int hj_toast_paypleaseupwxpay=0x7f070052;
+        public static final int hj_toast_paywxpayloading=0x7f070051;
+        public static final int hj_toast_regbindsuccess=0x7f07004c;
+        public static final int hj_toast_reggetcode=0x7f070042;
+        public static final int hj_toast_reggetcodesuccess=0x7f07003f;
+        public static final int hj_toast_regnotempty=0x7f07004a;
+        public static final int hj_toast_regpleaseac=0x7f070044;
+        public static final int hj_toast_regpleasepwd=0x7f070045;
+        public static final int hj_toast_regpleaseread=0x7f070046;
+        public static final int hj_toast_regpleasewritecode=0x7f070041;
+        public static final int hj_toast_regpleasewriteokphone=0x7f070048;
+        public static final int hj_toast_regpleasewritephone=0x7f070047;
+        public static final int hj_toast_regregsuccess=0x7f07004d;
+        public static final int hj_toast_regtempbindnotempty=0x7f070049;
+        public static final int hj_toast_regwait=0x7f070040;
+        public static final int hj_toast_writerightcode=0x7f070043;
+        public static final int hj_txt_regiread=0x7f07005f;
+        public static final int hj_user_agreement=0x7f070060;
+        public static final int hj_wxappid=0x7f070077;
+        public static final int hj_wxmchid=0x7f070078;
+        public static final int register_name_digits=0x7f070034;
+        public static final int txt_account=0x7f07000c;
+        public static final int txt_default=0x7f07000a;
+        public static final int txt_fast_reg=0x7f07000b;
+        public static final int txt_hello=0x7f070009;
+        public static final int txt_pwd=0x7f07000d;
     }
     public static final class style {
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
-
-    
-
-            Theme customizations available in newer API levels can go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
-
-        
-
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-    
- API 11 theme customizations can go here. 
-
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
-    
- API 14 theme customizations can go here. 
-
-        Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     
 
             Theme customizations available in newer API levels can go in
@@ -630,37 +608,32 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f080001;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
- Application theme. 
- All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f080004;
-        public static final int ButtonBar=0x7f080006;
-        public static final int ButtonBarButton=0x7f080007;
-        public static final int FullscreenTheme=0x7f080005;
-        public static final int HJCustomCheckboxTheme=0x7f080008;
+        public static final int AppTheme=0x7f080001;
+        public static final int ButtonBar=0x7f080005;
+        public static final int ButtonBarButton=0x7f080006;
+        public static final int FullscreenTheme=0x7f080004;
+        public static final int HJCustomCheckboxTheme=0x7f080007;
         /**  loading 样式 
          */
-        public static final int HJDialog=0x7f08000c;
+        public static final int HJDialog=0x7f08000b;
         /**  弹出payback样式 
          */
-        public static final int HJDialogPayBackTheme=0x7f08000b;
+        public static final int HJDialogPayBackTheme=0x7f08000a;
         /**  弹出窗体样式 
          */
-        public static final int HJDialogTheme=0x7f08000a;
+        public static final int HJDialogTheme=0x7f080009;
         /**  弹出窗体样式  （透明）
          */
-        public static final int HJDialogThemeTransparent=0x7f080009;
-        public static final int HJLoadingDialog=0x7f08000d;
+        public static final int HJDialogThemeTransparent=0x7f080008;
+        public static final int HJLoadingDialog=0x7f08000c;
         public static final int HJSDK_ActivityTheme=0x7f080002;
-        /**  Activity主题 
-         */
-        public static final int activityTheme=0x7f080000;
         /**  loading 样式 end 
          */
-        public static final int fq_Dialog=0x7f08000e;
+        public static final int fq_Dialog=0x7f08000d;
         public static final int popxiala=0x7f080003;
     }
     public static final class styleable {
